@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TheArquive / Design 2</title>
+  <meta
+    name="description"
+    content="TheArquive: a curated archive of projects, systems and unfinished architectures."
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="TheArquive home">TheArquive</a>
+      <div class="header-meta" aria-label="Archive metadata">
+        <div>
+          <span class="meta-label">Index</span>
+          <span class="meta-value">01</span>
+        </div>
+        <div>
+          <span class="meta-label">Archive</span>
+          <span class="meta-value">0001-∞</span>
+        </div>
+        <div>
+          <span class="meta-label">Updated</span>
+          <span class="meta-value" id="updated-stamp">20.06.2026</span>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>A living archive of projects that do not fit inside one discipline.</h1>
+          <p class="hero-text">
+            TheArquive collects books, tools, systems, prototypes, research
+            fragments and digital experiments — not as a showcase of finished
+            objects, but as a map of work in progress.
+          </p>
+          <p class="hero-line">Not a portfolio. An archive of direction.</p>
+        </div>
+
+        <aside class="manifesto-card" aria-labelledby="manifesto-title">
+          <div class="manifesto-topline">
+            <span id="manifesto-title">About TheArquive</span>
+            <span>A / 01</span>
+          </div>
+          <p class="manifesto-quote">
+            Each project is treated as a dossier: what it is, why it exists,
+            where it stands, and what it may become.
+          </p>
+          <dl class="manifesto-grid">
+            <div>
+              <dt>Nature</dt>
+              <dd>Living Archive</dd>
+            </div>
+            <div>
+              <dt>Scope</dt>
+              <dd>Books, systems, tools, research, experiments</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>In continuous evolution</dd>
+            </div>
+            <div>
+              <dt>Principle</dt>
+              <dd>Clear context. Honest structure.</dd>
+            </div>
+          </dl>
+          <p class="manifesto-edge">The Arquive Manifesto</p>
+        </aside>
+      </section>
+
+      <section class="index-section" id="project-index">
+        <div class="section-rule"></div>
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">02 — Project Index</p>
+            <h2>Featured Projects</h2>
+            <p class="section-summary">
+              A selection of current and archived work — organised not by
+              polish, but by intent.
+            </p>
+          </div>
+          <a class="section-link" href="#editorial-note">Read notes</a>
+        </div>
+
+        <div class="filter-bar" aria-label="Project filters">
+          <div class="filter-group">
+            <span class="filter-label">Category</span>
+            <div class="filter-list" id="category-filters"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Status</span>
+            <div class="filter-list" id="status-filters"></div>
+          </div>
+        </div>
+
+        <div class="project-list" id="project-list" aria-live="polite"></div>
+      </section>
+
+      <section class="archive-grid">
+        <div class="archive-panel archive-panel-list">
+          <p class="section-kicker">03 — Categories</p>
+          <div class="archive-list" id="categories-panel"></div>
+        </div>
+
+        <div class="archive-panel archive-panel-list">
+          <p class="section-kicker">04 — Status</p>
+          <div class="archive-list" id="statuses-panel"></div>
+        </div>
+
+        <div class="archive-panel archive-note" id="editorial-note">
+          <p class="section-kicker">05 — Note</p>
+          <p class="archive-note-copy">
+            TheArquive grows one project at a time. Each new folder becomes a
+            new entry, a new dossier, a new trace in the larger structure.
+          </p>
+          <p class="archive-note-line">Work, indexed before it becomes myth.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <span class="footer-label">TheArquive</span>
+        <span class="footer-value">© 2026</span>
+      </div>
+      <div>
+        <span class="footer-label">Location</span>
+        <span class="footer-value">Lisbon, Portugal / UTC+1</span>
+      </div>
+      <div>
+        <span class="footer-label">Mode</span>
+        <span class="footer-value">Built as a living archive</span>
+      </div>
+      <div>
+        <span class="footer-label">System</span>
+        <span class="footer-value">Project folders become dossiers</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="projects.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
