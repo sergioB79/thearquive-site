@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neat MA Panel / Dossier</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --text: #eadfcb;
+      --muted: #b9ac93;
+      --line: rgba(234, 223, 203, 0.2);
+      --panel: rgba(18, 18, 18, 0.88);
+      --accent: #eadfcb;
+      --mono: "Consolas", "SFMono-Regular", "Courier New", monospace;
+      --sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(234, 223, 203, 0.05), transparent 22%),
+        linear-gradient(180deg, #090909 0%, var(--bg) 40%, #080808 100%);
+      font-family: var(--sans);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.012) 0,
+        rgba(255, 255, 255, 0.012) 1px,
+        transparent 1px,
+        transparent 32px
+      );
+      opacity: 0.55;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(calc(100% - 40px), 1100px);
+      margin: 0 auto;
+      padding: 28px 0 52px;
+    }
+
+    .topbar,
+    .meta-grid,
+    .section-head,
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .topbar {
+      align-items: flex-start;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .backlink,
+    .eyebrow,
+    .meta-label,
+    .tag,
+    .footer-label {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .title,
+    .section-head h2,
+    .lead,
+    .quote {
+      font-family: var(--serif);
+    }
+
+    .title {
+      margin: 18px 0 0;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.95fr);
+      gap: 28px;
+      padding: 34px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .lead {
+      margin: 22px 0 0;
+      max-width: 40rem;
+      font-size: 1.45rem;
+      line-height: 1.6;
+    }
+
+    .hero-card,
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .hero-card {
+      padding: 22px;
+      align-self: start;
+    }
+
+    .meta-grid {
+      flex-wrap: wrap;
+      gap: 18px 26px;
+    }
+
+    .meta-item {
+      display: grid;
+      gap: 6px;
+      min-width: 120px;
+    }
+
+    .meta-value {
+      font-family: var(--mono);
+      line-height: 1.6;
+    }
+
+    main {
+      display: grid;
+      gap: 22px;
+      padding-top: 28px;
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .section-head {
+      align-items: end;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head h2 {
+      margin: 10px 0 0;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+    }
+
+    .stack {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 14px 24px;
+      margin-top: 18px;
+    }
+
+    .stack dt {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .stack dd {
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    .quote {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.25;
+    }
+
+    .image-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-family: var(--mono);
+      line-height: 1.8;
+    }
+
+    ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+
+    code {
+      font-family: var(--mono);
+      color: var(--accent);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .footer-item {
+      display: grid;
+      gap: 6px;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .topbar,
+      .meta-grid,
+      .section-head,
+      .footer {
+        flex-direction: column;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .stack {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <a class="backlink" href="../index.html">Back to archive</a>
+        <h1 class="title">Neat MA Panel</h1>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">File No.</span>
+          <span class="meta-value">TS-002</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Category</span>
+          <span class="meta-value">Trading Systems</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">In Development / Private</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Dossier / Present State</p>
+        <p class="lead">
+          A TradingView overlay indicator built in Pine Script around regime
+          analysis, EMA channel structure, Fair Value Gap detection, retest
+          memory, alerts, and an on-chart state panel designed to reduce noise.
+        </p>
+      </div>
+      <aside class="hero-card">
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Primary language</span>
+            <span class="meta-value">Pine Script v6</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Platform</span>
+            <span class="meta-value">TradingView overlay indicator</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">States preserved</span>
+            <span class="meta-value">original.v1 + v2-codex</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Extra artifacts</span>
+            <span class="meta-value">Manuals EN/PT + promo image</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 / Technical Reading</p>
+            <h2>What exists today</h2>
+          </div>
+        </div>
+        <dl class="stack">
+          <dt>Project type</dt>
+          <dd>A chart overlay indicator, not a web or backend application.</dd>
+          <dt>Framework</dt>
+          <dd>No external framework. The logic is written directly in Pine Script for TradingView.</dd>
+          <dt>Routing</dt>
+          <dd>Not applicable in the web sense. The project runs inside TradingView as a chart script.</dd>
+          <dt>Styling system</dt>
+          <dd>Visual output is native to TradingView primitives: plots, plotshapes, FVG boxes and a table-based panel.</dd>
+          <dt>Core indicator model</dt>
+          <dd>Base regime MA, two EMA channels on high/low, FVG detection, regime-aligned signals, retest memory, and alertconditions.</dd>
+          <dt>Surface variants</dt>
+          <dd><code>original.v1</code> preserves v5.0; <code>v2-codex</code> contains v5.1 work and improvement notes.</dd>
+          <dt>Documentation</dt>
+          <dd>There are full manuals in English and Portuguese, plus explicit upgrade notes describing the v5.1 direction.</dd>
+        </dl>
+      </section>
+
+      <section class="panel" id="notes">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 / Notes</p>
+            <h2>Observed structure</h2>
+          </div>
+        </div>
+        <p class="quote">
+          This is a reading instrument more than a strategy engine: it compresses
+          market structure into a compact panel of regime, momentum and imbalance.
+        </p>
+        <ul>
+          <li>The original script is a Pine v6 overlay indicator with a table panel and alertconditions, centered on Base MA, CH1/CH2 relationships, retests and FVGs.</li>
+          <li>The original documentation is already unusually complete, including architecture, usage logic, asset templates and examples.</li>
+          <li>The `v2-codex` branch is not a rewrite; it appears to be a structured extension of the same indicator.</li>
+          <li>The documented v5.1 additions include macro trend status, session filtering, stop management via CH2, FVG/MA confluence highlighting and volatility warning.</li>
+          <li>The promotional image is not literal UI, but it reinforces the indicator's semantic core: regime, channels, FVGs, momentum and retests.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">03 / Version Inventory</p>
+            <h2>Preserved states</h2>
+          </div>
+        </div>
+        <ul>
+          <li><code>original.v1/NeatMAPanel_v5.0.pine</code> — Pine v6 indicator labeled `Neat MA Panel — v5.0`.</li>
+          <li><code>original.v1/NeatMAPanel_v5_Manual_EN.md</code> and <code>..._PT.md</code> — original manuals.</li>
+          <li><code>v2-codex/NeatMAPanel_new.pine</code> — Pine v6 indicator labeled `Neat MA Panel — v5.1`.</li>
+          <li><code>v2-codex/upgrades.md</code> and <code>melhoriasRealizadas.md</code> — extension plan and implemented improvements summary.</li>
+          <li><code>neat.png</code> — promotional visual reference for the product identity.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">04 / Differences</p>
+            <h2>v5.0 versus v5.1 branch</h2>
+          </div>
+        </div>
+        <ul>
+          <li>v5.0 defines a 21-row table panel and focuses on regime, channel state, retests, separation strength and FVG logic.</li>
+          <li>v5.1 expands the panel to 24 rows and adds macro trend via higher timeframe data using <code>request.security</code>.</li>
+          <li>v5.1 adds a stop line based on CH2, a session filter, FVG highlight logic for Base MA confluence, and a volatility warning threshold.</li>
+          <li>The overall architecture remains indicator-first rather than strategy-first; even the improvements are about context quality and decision filtering.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">05 / Visual Surface</p>
+            <h2>Image note</h2>
+          </div>
+        </div>
+        <p class="image-note">
+          The file <code>neat.png</code> reads as promotional collateral rather than product UI documentation. It highlights the vocabulary of the tool — bullish/bearish regime, CH1/CH2 channels, FVG support/resistance, momentum and retests — but should not be treated as a precise implementation screenshot.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">06 / Classification</p>
+            <h2>Archive tags</h2>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">Trading Systems</span>
+          <span class="tag">Pine Script</span>
+          <span class="tag">TradingView</span>
+          <span class="tag">Overlay Indicator</span>
+          <span class="tag">Signal Panel</span>
+          <span class="tag">Private</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-item">
+        <span class="footer-label">Source scope</span>
+        <span>Documentation only. No project files were modified.</span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-label">Archive status</span>
+        <span>Second dossier recorded.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

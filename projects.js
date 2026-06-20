@@ -39,6 +39,23 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/1-autotrade-base.html" },
         { label: "Read notes", url: "./dossiers/1-autotrade-base.html#notes" }
       ]
+    },
+    {
+      number: "02",
+      title: "Neat MA Panel",
+      category: "Trading Systems",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "TS-002",
+      description:
+        "A TradingView Pine Script overlay indicator organized around regime analysis, EMA channel relationships, Fair Value Gaps, alerts, and a compact on-chart state panel.",
+      editorial:
+        "Documented as a signal-reading instrument with two preserved states: the original v5.0 release and a codex-tracked v5.1 branch with macro, session, stop, and volatility extensions.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/2-neat-ma-panel.html" },
+        { label: "Read notes", url: "./dossiers/2-neat-ma-panel.html#notes" }
+      ]
     }
   ]
 };
