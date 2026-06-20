@@ -56,6 +56,23 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/2-neat-ma-panel.html" },
         { label: "Read notes", url: "./dossiers/2-neat-ma-panel.html#notes" }
       ]
+    },
+    {
+      number: "03",
+      title: "AI-CONVO-NET",
+      category: "Research",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "RS-003",
+      description:
+        "A multi-source conversation corpus project that aggregates exports from OpenAI, Claude, and Gemini, then parses, classifies, and indexes them into a local analysis pipeline.",
+      editorial:
+        "Documented as a research dataset and processing system rather than a product surface: raw input archives, intermediate JSON layers, classification batches, and a local Chroma vector store.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/3-ai-convo-net.html" },
+        { label: "Read notes", url: "./dossiers/3-ai-convo-net.html#notes" }
+      ]
     }
   ]
 };

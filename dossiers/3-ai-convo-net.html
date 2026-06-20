@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-CONVO-NET / Dossier</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --text: #eadfcb;
+      --muted: #b9ac93;
+      --line: rgba(234, 223, 203, 0.2);
+      --panel: rgba(18, 18, 18, 0.88);
+      --accent: #eadfcb;
+      --mono: "Consolas", "SFMono-Regular", "Courier New", monospace;
+      --sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(234, 223, 203, 0.05), transparent 22%),
+        linear-gradient(180deg, #090909 0%, var(--bg) 40%, #080808 100%);
+      font-family: var(--sans);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.012) 0,
+        rgba(255, 255, 255, 0.012) 1px,
+        transparent 1px,
+        transparent 32px
+      );
+      opacity: 0.55;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(calc(100% - 40px), 1100px);
+      margin: 0 auto;
+      padding: 28px 0 52px;
+    }
+
+    .topbar,
+    .meta-grid,
+    .section-head,
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .topbar {
+      align-items: flex-start;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .backlink,
+    .eyebrow,
+    .meta-label,
+    .tag,
+    .footer-label {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .title,
+    .section-head h2,
+    .lead,
+    .quote {
+      font-family: var(--serif);
+    }
+
+    .title {
+      margin: 18px 0 0;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.95fr);
+      gap: 28px;
+      padding: 34px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .lead {
+      margin: 22px 0 0;
+      max-width: 42rem;
+      font-size: 1.45rem;
+      line-height: 1.6;
+    }
+
+    .hero-card,
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .hero-card {
+      padding: 22px;
+      align-self: start;
+    }
+
+    .meta-grid {
+      flex-wrap: wrap;
+      gap: 18px 26px;
+    }
+
+    .meta-item {
+      display: grid;
+      gap: 6px;
+      min-width: 120px;
+    }
+
+    .meta-value {
+      font-family: var(--mono);
+      line-height: 1.6;
+    }
+
+    main {
+      display: grid;
+      gap: 22px;
+      padding-top: 28px;
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .section-head {
+      align-items: end;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head h2 {
+      margin: 10px 0 0;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+    }
+
+    .stack {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 14px 24px;
+      margin-top: 18px;
+    }
+
+    .stack dt {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .stack dd {
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    .quote {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.25;
+    }
+
+    ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+
+    code {
+      font-family: var(--mono);
+      color: var(--accent);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .footer-item {
+      display: grid;
+      gap: 6px;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .topbar,
+      .meta-grid,
+      .section-head,
+      .footer {
+        flex-direction: column;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .stack {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <a class="backlink" href="../index.html">Back to archive</a>
+        <h1 class="title">AI-CONVO-NET</h1>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">File No.</span>
+          <span class="meta-value">RS-003</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Category</span>
+          <span class="meta-value">Research</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">In Development / Private</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Dossier / Present State</p>
+        <p class="lead">
+          A research corpus and processing pipeline that gathers conversation
+          exports from OpenAI, Claude, and Gemini, then parses, classifies, and
+          indexes them into local JSON layers and a Chroma vector database.
+        </p>
+      </div>
+      <aside class="hero-card">
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Core language</span>
+            <span class="meta-value">Python</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Source inputs</span>
+            <span class="meta-value">OpenAI / Claude / Gemini exports</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Pipeline surface</span>
+            <span class="meta-value">Parsed JSON + classified batches + vector DB</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Observed size</span>
+            <span class="meta-value">~6.24 GB</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 / Technical Reading</p>
+            <h2>What exists today</h2>
+          </div>
+        </div>
+        <dl class="stack">
+          <dt>Project type</dt>
+          <dd>A research/data-processing project, not a deployed application in its current form.</dd>
+          <dt>Framework</dt>
+          <dd>No app framework is visible. The processing layer is centered on Python scripts inside <code>pipeline/</code>.</dd>
+          <dt>Routing</dt>
+          <dd>Not applicable in the web sense. The visible structure is corpus ingestion, transformation and local indexing.</dd>
+          <dt>Primary inputs</dt>
+          <dd>Conversation exports from <code>input/OpenAI</code>, <code>input/Claude</code> and <code>input/gemini</code>.</dd>
+          <dt>Intermediate layers</dt>
+          <dd><code>pipeline/01_parsed</code>, <code>pipeline/classified</code>, <code>pipeline/batches</code>, <code>pipeline/all_classified.json</code>, and <code>pipeline/02_classified/classified.json</code>.</dd>
+          <dt>Vector storage</dt>
+          <dd>A local Chroma database in <code>pipeline/chroma_db</code>, including <code>chroma.sqlite3</code>.</dd>
+          <dt>Documentation artifacts</dt>
+          <dd>Three top-level <code>.docx</code> documents describing pipeline, app search and file references.</dd>
+        </dl>
+      </section>
+
+      <section class="panel" id="notes">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 / Notes</p>
+            <h2>Why the folder is large</h2>
+          </div>
+        </div>
+        <p class="quote">
+          The size appears to come from corpus data and generated indexes, not
+          from local AI model weights.
+        </p>
+        <ul>
+          <li>Total observed size is roughly <code>6.24 GB</code>.</li>
+          <li><code>input/</code> accounts for about <code>5.48 GB</code>, with <code>input/OpenAI</code> alone around <code>5.23 GB</code>.</li>
+          <li><code>pipeline/</code> is much smaller at around <code>0.33 GB</code>.</li>
+          <li>Inside <code>pipeline/</code>, the heaviest areas are <code>classified</code>, <code>batches</code> and <code>chroma_db</code>, which read as generated processing outputs and local index storage.</li>
+          <li>No clear signs of local model weights were found: no <code>.safetensors</code>, <code>.gguf</code>, <code>.onnx</code>, <code>.pt</code> or similar model packages are visible.</li>
+          <li>The visible <code>.bin</code> files are too few to explain the size and do not, by themselves, indicate a local model runtime.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">03 / Surface Inventory</p>
+            <h2>Relevant files and layers</h2>
+          </div>
+        </div>
+        <ul>
+          <li><code>pipeline/extract_topics.py</code> — post-processing script that reads <code>all_classified.json</code> and writes a reduced topic extract.</li>
+          <li><code>pipeline/extract_topics_v2.py</code> — similar extractor, but preserving a <code>chroma_id</code> compatible with the indexing layer.</li>
+          <li><code>pipeline/all_classified.json</code> — large consolidated classification file.</li>
+          <li><code>pipeline/01_parsed/*.json</code> — parsed source conversations.</li>
+          <li><code>pipeline/classified/</code> and <code>pipeline/batches/</code> — batch-level classification artifacts.</li>
+          <li><code>pipeline/chroma_db/</code> — local vector database for search/retrieval.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">04 / Extension Read</p>
+            <h2>Observed file profile</h2>
+          </div>
+        </div>
+        <ul>
+          <li>The folder contains many <code>.png</code> and <code>.jpg</code> files, suggesting rich conversation exports or media attachments.</li>
+          <li>There are also <code>.json</code>, <code>.wav</code>, <code>.mp4</code>, <code>.csv</code>, <code>.zip</code> and <code>.pdf</code> files, which points to a broad export/archive corpus.</li>
+          <li>The code surface is comparatively small: a handful of Python scripts and a compact top-level document set.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">05 / Classification</p>
+            <h2>What looks essential versus regenerable</h2>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Likely source-of-truth:</strong> the raw exports under <code>input/</code>, the top-level project docs, and the Python scripts.</li>
+          <li><strong>Likely generated outputs:</strong> <code>pipeline/batches</code>, <code>pipeline/classified</code>, <code>pipeline/all_classified.json</code>, and <code>pipeline/chroma_db</code>.</li>
+          <li><strong>Important caution:</strong> generated does not mean disposable. If the pipeline is not fully reproducible yet, these outputs may still be operationally necessary.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">06 / Archive tags</p>
+            <h2>Classification</h2>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">Research</span>
+          <span class="tag">Conversation Corpus</span>
+          <span class="tag">Python Pipeline</span>
+          <span class="tag">Vector Search</span>
+          <span class="tag">Chroma DB</span>
+          <span class="tag">Private</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-item">
+        <span class="footer-label">Source scope</span>
+        <span>Documentation only. No project files were modified.</span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-label">Archive status</span>
+        <span>Third dossier recorded.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
