@@ -158,6 +158,23 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/8-graffkit.html" },
         { label: "Read notes", url: "./dossiers/8-graffkit.html#notes" }
       ]
+    },
+    {
+      number: "09",
+      title: "MAs-MachineLearning",
+      category: "Trading Systems",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "TS-009",
+      description:
+        "A lightweight quant-validation scaffold for streaming TradingView webhook data into a VPS, securing the ingress layer, and preparing a future model-driven moving-average evaluation pipeline.",
+      editorial:
+        "Documented as an early infrastructure sketch with one real implementation surface already present: the webhook listener exists, but the optimization, storage, reporting, and GitHub Pages publishing layers are still mostly described rather than built.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/9-mas-machinelearning.html" },
+        { label: "Read notes", url: "./dossiers/9-mas-machinelearning.html#notes" }
+      ]
     }
   ]
 };

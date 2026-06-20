@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAs-MachineLearning / Dossier</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --text: #eadfcb;
+      --muted: #b9ac93;
+      --line: rgba(234, 223, 203, 0.2);
+      --panel: rgba(18, 18, 18, 0.88);
+      --accent: #eadfcb;
+      --mono: "Consolas", "SFMono-Regular", "Courier New", monospace;
+      --sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(234, 223, 203, 0.05), transparent 22%),
+        linear-gradient(180deg, #090909 0%, var(--bg) 40%, #080808 100%);
+      font-family: var(--sans);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.012) 0,
+        rgba(255, 255, 255, 0.012) 1px,
+        transparent 1px,
+        transparent 32px
+      );
+      opacity: 0.55;
+    }
+    a { color: inherit; }
+    .shell {
+      width: min(calc(100% - 40px), 1100px);
+      margin: 0 auto;
+      padding: 28px 0 52px;
+    }
+    .topbar, .meta-grid, .section-head, .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .topbar {
+      align-items: flex-start;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .backlink, .eyebrow, .meta-label, .tag, .footer-label {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .title, .section-head h2, .lead, .quote { font-family: var(--serif); }
+    .title {
+      margin: 18px 0 0;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.95fr);
+      gap: 28px;
+      padding: 34px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+    .lead {
+      margin: 22px 0 0;
+      max-width: 42rem;
+      font-size: 1.45rem;
+      line-height: 1.6;
+    }
+    .hero-card, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .hero-card {
+      padding: 22px;
+      align-self: start;
+    }
+    .meta-grid {
+      flex-wrap: wrap;
+      gap: 18px 26px;
+    }
+    .meta-item {
+      display: grid;
+      gap: 6px;
+      min-width: 120px;
+    }
+    .meta-value {
+      font-family: var(--mono);
+      line-height: 1.6;
+    }
+    main {
+      display: grid;
+      gap: 22px;
+      padding-top: 28px;
+    }
+    .panel { padding: 22px; }
+    .section-head {
+      align-items: end;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-head h2 {
+      margin: 10px 0 0;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+    }
+    .stack {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 14px 24px;
+      margin-top: 18px;
+    }
+    .stack dt {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .stack dd {
+      margin: 0;
+      line-height: 1.8;
+    }
+    .quote {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.25;
+    }
+    ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+    code {
+      font-family: var(--mono);
+      color: var(--accent);
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .tag {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+    }
+    .footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+    .footer-item {
+      display: grid;
+      gap: 6px;
+    }
+    @media (max-width: 860px) {
+      .hero, .topbar, .meta-grid, .section-head, .footer {
+        flex-direction: column;
+      }
+      .hero { grid-template-columns: 1fr; }
+      .stack { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <a class="backlink" href="../index.html">Back to archive</a>
+        <h1 class="title">MAs-MachineLearning</h1>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">File No.</span>
+          <span class="meta-value">TS-009</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Category</span>
+          <span class="meta-value">Trading Systems</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">Prototype / Private</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Dossier / Present State</p>
+        <p class="lead">
+          A very early quant-validation scaffold centred on one problem:
+          receive TradingView webhook bars on a VPS, secure that ingress, and
+          prepare a later machine-learning or optimization loop around moving
+          average validation.
+        </p>
+      </div>
+      <aside class="hero-card">
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Runtime</span>
+            <span class="meta-value">Python + Flask</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Surface</span>
+            <span class="meta-value">Webhook listener</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Deploy shape</span>
+            <span class="meta-value">Docker / VPS</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Folder weight</span>
+            <span class="meta-value">~6 KB total</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 / Technical Reading</p>
+            <h2>What exists today</h2>
+          </div>
+        </div>
+        <dl class="stack">
+          <dt>Project type</dt>
+          <dd>A minimal backend prototype with a strong architectural note attached to it, not yet a full quant research system.</dd>
+          <dt>Framework</dt>
+          <dd><code>Flask 2.3.2</code> with a single Python entrypoint in <code>quant_pipeline/app.py</code>.</dd>
+          <dt>Routing</dt>
+          <dd>Two routes exist: <code>GET /</code> for a basic status string and <code>POST /webhook</code> for TradingView-style JSON ingestion.</dd>
+          <dt>Security layer</dt>
+          <dd>The implemented listener already checks a shared <code>secret_key</code> from the payload against <code>WEBHOOK_SECRET_KEY</code> from the environment.</dd>
+          <dt>Deployment</dt>
+          <dd>Container files are present: one <code>Dockerfile</code> and one <code>docker-compose.yml</code> for running the webhook service on port <code>5000</code>.</dd>
+          <dt>Missing core logic</dt>
+          <dd>No MA optimization loop, database layer, walk-forward engine, reporting output or GitHub Pages publishing script is implemented in the inspected files.</dd>
+        </dl>
+      </section>
+
+      <section class="panel" id="notes">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 / Notes</p>
+            <h2>Project or idea?</h2>
+          </div>
+        </div>
+        <p class="quote">
+          It is more than an idea, but not yet a developed system. The real
+          state is: blueprint plus secured ingress stub.
+        </p>
+        <ul>
+          <li><code>info.txt</code> describes a much larger quant architecture than the code currently implements.</li>
+          <li>The implemented part is the first handshake only: receiving and authenticating webhook data from TradingView.</li>
+          <li>The machine-learning language in the folder name is aspirational at this stage; no ML library or model code is present.</li>
+          <li>The folder is operationally coherent because Docker packaging and environment-key handling already exist.</li>
+          <li>The right archive classification is therefore prototype, not pure concept and not full project.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">03 / Surface Inventory</p>
+            <h2>Relevant files</h2>
+          </div>
+        </div>
+        <ul>
+          <li><code>info.txt</code> — full architectural blueprint for the intended TradingView → VPS → GitHub Pages validation loop.</li>
+          <li><code>quant_pipeline/app.py</code> — Flask webhook listener with basic secret-key verification.</li>
+          <li><code>quant_pipeline/requirements.txt</code> — currently only <code>Flask==2.3.2</code>.</li>
+          <li><code>quant_pipeline/Dockerfile</code> — Python container for the listener.</li>
+          <li><code>quant_pipeline/docker-compose.yml</code> — single-service orchestration with port mapping and env injection.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">04 / Weight &amp; Reality</p>
+            <h2>How lightweight it is</h2>
+          </div>
+        </div>
+        <ul>
+          <li>The entire folder is only a few kilobytes in size.</li>
+          <li>There is no <code>node_modules</code>, no virtual environment, no dataset cache and no generated reports.</li>
+          <li>That strongly confirms this is an initial scaffold, not an actively expanded research repository.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">05 / Classification</p>
+            <h2>Archive tags</h2>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">Trading Systems</span>
+          <span class="tag">Quant Prototype</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Webhook Ingress</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Private</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-item">
+        <span class="footer-label">Source scope</span>
+        <span>Documentation only. No project files were modified.</span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-label">Archive status</span>
+        <span>Ninth dossier recorded.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
