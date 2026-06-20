@@ -107,6 +107,23 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/5-deepseek-daily-fx-reportanalizer.html" },
         { label: "Read notes", url: "./dossiers/5-deepseek-daily-fx-reportanalizer.html#notes" }
       ]
+    },
+    {
+      number: "06",
+      title: "forexStudySystem",
+      category: "Trading Systems",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "TS-006",
+      description:
+        "A modular forex research workspace built as a Next.js application with dashboard, per-asset study dossiers, cached market/news routes, and local-first note persistence.",
+      editorial:
+        "Documented as a serious prototype with a real application surface already in place, but still carrying scaffold residue, local persistence, and heavy build/install artifacts inside the copied folder.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/6-forex-study-system.html" },
+        { label: "Read notes", url: "./dossiers/6-forex-study-system.html#notes" }
+      ]
     }
   ]
 };

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>forexStudySystem / Dossier</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --text: #eadfcb;
+      --muted: #b9ac93;
+      --line: rgba(234, 223, 203, 0.2);
+      --panel: rgba(18, 18, 18, 0.88);
+      --accent: #eadfcb;
+      --mono: "Consolas", "SFMono-Regular", "Courier New", monospace;
+      --sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(234, 223, 203, 0.05), transparent 22%),
+        linear-gradient(180deg, #090909 0%, var(--bg) 40%, #080808 100%);
+      font-family: var(--sans);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.012) 0,
+        rgba(255, 255, 255, 0.012) 1px,
+        transparent 1px,
+        transparent 32px
+      );
+      opacity: 0.55;
+    }
+    a { color: inherit; }
+    .shell {
+      width: min(calc(100% - 40px), 1100px);
+      margin: 0 auto;
+      padding: 28px 0 52px;
+    }
+    .topbar, .meta-grid, .section-head, .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .topbar {
+      align-items: flex-start;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .backlink, .eyebrow, .meta-label, .tag, .footer-label {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .title, .section-head h2, .lead, .quote { font-family: var(--serif); }
+    .title {
+      margin: 18px 0 0;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.95fr);
+      gap: 28px;
+      padding: 34px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+    .lead {
+      margin: 22px 0 0;
+      max-width: 42rem;
+      font-size: 1.45rem;
+      line-height: 1.6;
+    }
+    .hero-card, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .hero-card {
+      padding: 22px;
+      align-self: start;
+    }
+    .meta-grid {
+      flex-wrap: wrap;
+      gap: 18px 26px;
+    }
+    .meta-item {
+      display: grid;
+      gap: 6px;
+      min-width: 120px;
+    }
+    .meta-value {
+      font-family: var(--mono);
+      line-height: 1.6;
+    }
+    main {
+      display: grid;
+      gap: 22px;
+      padding-top: 28px;
+    }
+    .panel { padding: 22px; }
+    .section-head {
+      align-items: end;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-head h2 {
+      margin: 10px 0 0;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+    }
+    .stack {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 14px 24px;
+      margin-top: 18px;
+    }
+    .stack dt {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .stack dd {
+      margin: 0;
+      line-height: 1.8;
+    }
+    .quote {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.25;
+    }
+    ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+    code {
+      font-family: var(--mono);
+      color: var(--accent);
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .tag {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+    }
+    .footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+    .footer-item {
+      display: grid;
+      gap: 6px;
+    }
+    @media (max-width: 860px) {
+      .hero, .topbar, .meta-grid, .section-head, .footer {
+        flex-direction: column;
+      }
+      .hero { grid-template-columns: 1fr; }
+      .stack { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <a class="backlink" href="../index.html">Back to archive</a>
+        <h1 class="title">forexStudySystem</h1>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">File No.</span>
+          <span class="meta-value">TS-006</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Category</span>
+          <span class="meta-value">Trading Systems</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">In Development / Private</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Dossier / Present State</p>
+        <p class="lead">
+          A Next.js trading research workspace centred on a dashboard, per-asset
+          study pages, live market and news lookups, and local-first journaling
+          for forex, metals and index watchlists.
+        </p>
+      </div>
+      <aside class="hero-card">
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Framework</span>
+            <span class="meta-value">Next.js 16 / App Router</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Language</span>
+            <span class="meta-value">TypeScript + React 19</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Persistence</span>
+            <span class="meta-value">Browser localStorage</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Folder weight</span>
+            <span class="meta-value">~711 MB mostly artifacts</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 / Technical Reading</p>
+            <h2>What exists today</h2>
+          </div>
+        </div>
+        <dl class="stack">
+          <dt>Project type</dt>
+          <dd>A real web application prototype, not just a plan document: the folder contains a functioning dashboard flow, dynamic asset routes and server-side API handlers.</dd>
+          <dt>Framework</dt>
+          <dd><code>next@16.2.1</code> with <code>react@19.2.4</code>, <code>react-dom@19.2.4</code> and the App Router under <code>src/app</code>.</dd>
+          <dt>Routing</dt>
+          <dd><code>/</code> redirects to <code>/dashboard</code>; dynamic asset dossiers live at <code>/asset/[id]</code>; API routes exist at <code>/api/market/[symbol]</code> and <code>/api/news/[symbol]</code>.</dd>
+          <dt>Styling</dt>
+          <dd>Tailwind CSS v4 via <code>@import "tailwindcss"</code> in <code>globals.css</code>, with a custom dark theme token set and bespoke TipTap editor styling.</dd>
+          <dt>State model</dt>
+          <dd>Active assets, studies and day notes are persisted in <code>localStorage</code>; no live database is wired yet despite the presence of <code>@supabase/supabase-js</code> in dependencies.</dd>
+          <dt>Editor surface</dt>
+          <dd>TipTap is used for rich-text note and study editing through <code>@tiptap/react</code> and <code>@tiptap/starter-kit</code>.</dd>
+          <dt>External data</dt>
+          <dd>Server routes call Twelve Data for price/quote data and Alpha Vantage for ranked news sentiment, with cache revalidation set in the fetch layer.</dd>
+          <dt>Deployment shape</dt>
+          <dd>This is Vercel-friendly Next.js, not GitHub Pages-friendly static output, because the app depends on runtime API routes and environment keys.</dd>
+        </dl>
+      </section>
+
+      <section class="panel" id="notes">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 / Notes</p>
+            <h2>Observed structure</h2>
+          </div>
+        </div>
+        <p class="quote">
+          The concept is serious. The current build is already usable as a local
+          research instrument, but its persistence and deployment layers are
+          still transitional.
+        </p>
+        <ul>
+          <li>The folder contains both a planning brief and a more advanced implementation than the brief alone would suggest.</li>
+          <li>The dashboard is client-heavy and uses browser storage as the primary source of truth, which makes it fast locally but not yet multi-device or collaborative.</li>
+          <li>The per-asset page is the strongest surface: market snapshot, timeframe study stacks and filtered news are already unified in one dossier view.</li>
+          <li>The dependency list still reflects intended future scope: Supabase is installed, but the visible source currently persists to the browser instead of a backend.</li>
+          <li>A <code>/settings</code> link exists in the dashboard UI, but no matching route is present in the inspected file set.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">03 / Surface Inventory</p>
+            <h2>Relevant files</h2>
+          </div>
+        </div>
+        <ul>
+          <li><code>briefing.txt</code> — product and deployment plan recommending Next.js plus Vercel.</li>
+          <li><code>forex-study/src/app/dashboard/page.tsx</code> — main dashboard, asset picker, calendar notes and task panel.</li>
+          <li><code>forex-study/src/app/asset/[id]/page.tsx</code> — dynamic asset dossier with study editors, market snapshot and news feed.</li>
+          <li><code>forex-study/src/app/api/market/[symbol]/route.ts</code> — Twelve Data proxy with cached quote, weekly and monthly transforms.</li>
+          <li><code>forex-study/src/app/api/news/[symbol]/route.ts</code> — Alpha Vantage news proxy with relevance scoring by asset keywords.</li>
+          <li><code>forex-study/src/app/globals.css</code> — Tailwind v4 theme tokens and editor presentation rules.</li>
+          <li><code>forex-study/package.json</code> — Next 16, React 19, TipTap, Framer Motion and Supabase dependency declaration.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">04 / Weight &amp; Residue</p>
+            <h2>Why the folder is large</h2>
+          </div>
+        </div>
+        <ul>
+          <li><code>node_modules</code> occupies roughly <code>466 MB</code>.</li>
+          <li><code>.next</code> occupies roughly <code>245 MB</code>.</li>
+          <li>The actual authored source under <code>src</code> is tiny by comparison at roughly <code>0.08 MB</code>.</li>
+          <li>The copy also contains its own nested <code>.git</code> folder, plus build metadata such as <code>tsconfig.tsbuildinfo</code>.</li>
+          <li>So the folder is large mostly because this is a working local clone with install and build artifacts, not because the handwritten codebase itself is massive.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">05 / Deployment Reading</p>
+            <h2>Operational notes</h2>
+          </div>
+        </div>
+        <ul>
+          <li>Live market data requires <code>TWELVE_DATA_KEY</code> in the runtime environment.</li>
+          <li>News sentiment requires <code>ALPHA_VANTAGE_KEY</code> in the runtime environment.</li>
+          <li>No <code>vercel.json</code> or custom deployment manifest is present; the setup relies on standard Next.js conventions.</li>
+          <li><code>next.config.ts</code> only sets <code>allowedDevOrigins</code>, which suggests a local/dev networking adjustment rather than a production policy layer.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">06 / Classification</p>
+            <h2>Archive tags</h2>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">Trading Systems</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">Research Workspace</span>
+          <span class="tag">TipTap</span>
+          <span class="tag">Local-First</span>
+          <span class="tag">Private</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-item">
+        <span class="footer-label">Source scope</span>
+        <span>Documentation only. No project files were modified.</span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-label">Archive status</span>
+        <span>Sixth dossier recorded.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
