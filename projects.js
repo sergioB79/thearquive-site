@@ -73,6 +73,23 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/3-ai-convo-net.html" },
         { label: "Read notes", url: "./dossiers/3-ai-convo-net.html#notes" }
       ]
+    },
+    {
+      number: "04",
+      title: "cliTesStableDiffusion",
+      category: "Creative Tools",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "CT-004",
+      description:
+        "A local Python bridge that turns Stable Diffusion generation into a command-line and trigger-based workflow, then publishes results into Reflect notes and optionally Google Drive.",
+      editorial:
+        "Documented as an orchestration tool rather than a model repository: local SD API client, watcher and trigger flows, a tiny image server, and service credentials around the edges.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/4-clites-stable-diffusion.html" },
+        { label: "Read notes", url: "./dossiers/4-clites-stable-diffusion.html#notes" }
+      ]
     }
   ]
 };

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cliTesStableDiffusion / Dossier</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --text: #eadfcb;
+      --muted: #b9ac93;
+      --line: rgba(234, 223, 203, 0.2);
+      --panel: rgba(18, 18, 18, 0.88);
+      --accent: #eadfcb;
+      --mono: "Consolas", "SFMono-Regular", "Courier New", monospace;
+      --sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(234, 223, 203, 0.05), transparent 22%),
+        linear-gradient(180deg, #090909 0%, var(--bg) 40%, #080808 100%);
+      font-family: var(--sans);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.012) 0,
+        rgba(255, 255, 255, 0.012) 1px,
+        transparent 1px,
+        transparent 32px
+      );
+      opacity: 0.55;
+    }
+    a { color: inherit; }
+    .shell {
+      width: min(calc(100% - 40px), 1100px);
+      margin: 0 auto;
+      padding: 28px 0 52px;
+    }
+    .topbar, .meta-grid, .section-head, .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .topbar {
+      align-items: flex-start;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .backlink, .eyebrow, .meta-label, .tag, .footer-label {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .title, .section-head h2, .lead, .quote { font-family: var(--serif); }
+    .title {
+      margin: 18px 0 0;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.95fr);
+      gap: 28px;
+      padding: 34px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+    .lead {
+      margin: 22px 0 0;
+      max-width: 42rem;
+      font-size: 1.45rem;
+      line-height: 1.6;
+    }
+    .hero-card, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .hero-card {
+      padding: 22px;
+      align-self: start;
+    }
+    .meta-grid {
+      flex-wrap: wrap;
+      gap: 18px 26px;
+    }
+    .meta-item {
+      display: grid;
+      gap: 6px;
+      min-width: 120px;
+    }
+    .meta-value {
+      font-family: var(--mono);
+      line-height: 1.6;
+    }
+    main {
+      display: grid;
+      gap: 22px;
+      padding-top: 28px;
+    }
+    .panel { padding: 22px; }
+    .section-head {
+      align-items: end;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-head h2 {
+      margin: 10px 0 0;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+    }
+    .stack {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 14px 24px;
+      margin-top: 18px;
+    }
+    .stack dt {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .stack dd {
+      margin: 0;
+      line-height: 1.8;
+    }
+    .quote {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.25;
+    }
+    ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+    code {
+      font-family: var(--mono);
+      color: var(--accent);
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .tag {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+    }
+    .footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+    .footer-item {
+      display: grid;
+      gap: 6px;
+    }
+    @media (max-width: 860px) {
+      .hero, .topbar, .meta-grid, .section-head, .footer {
+        flex-direction: column;
+      }
+      .hero { grid-template-columns: 1fr; }
+      .stack { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <a class="backlink" href="../index.html">Back to archive</a>
+        <h1 class="title">cliTesStableDiffusion</h1>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">File No.</span>
+          <span class="meta-value">CT-004</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Category</span>
+          <span class="meta-value">Creative Tools</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">In Development / Private</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Dossier / Present State</p>
+        <p class="lead">
+          A local Python automation bridge around AUTOMATIC1111's Stable
+          Diffusion API, exposing CLI generation, hotkey/manual prompt triggers,
+          a local image server, Reflect note integration, and optional Google
+          Drive publishing.
+        </p>
+      </div>
+      <aside class="hero-card">
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Core language</span>
+            <span class="meta-value">Python</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Primary runtime</span>
+            <span class="meta-value">CLI + local services</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Image backend</span>
+            <span class="meta-value">AUTOMATIC1111 API</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">External services</span>
+            <span class="meta-value">Reflect + Google Drive</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 / Technical Reading</p>
+            <h2>What exists today</h2>
+          </div>
+        </div>
+        <dl class="stack">
+          <dt>Project type</dt>
+          <dd>A local automation and orchestration tool, not a standalone image model repository.</dd>
+          <dt>Framework</dt>
+          <dd>Python command-line app built with <code>Typer</code> and <code>Rich</code>, plus a tiny <code>FastAPI</code> server for serving generated images.</dd>
+          <dt>Routing</dt>
+          <dd>Minimal local API surface in <code>server.py</code>: root health endpoint and static image serving under <code>/images</code>.</dd>
+          <dt>Generation backend</dt>
+          <dd>Communicates with AUTOMATIC1111 over the local Stable Diffusion API at <code>http://127.0.0.1:7860</code> by default.</dd>
+          <dt>Automation flows</dt>
+          <dd>Supports direct CLI generation, a watcher polling Reflect for <code>🎨 [[SD: ...]]</code> triggers, and manual/hotkey-triggered generation.</dd>
+          <dt>Publishing path</dt>
+          <dd>Generated images can be saved locally, exposed via the local image server, and uploaded to Google Drive before appending a link into Reflect.</dd>
+          <dt>Config model</dt>
+          <dd>Runtime settings are stored outside the project in <code>~/.sdcli/config.json</code>.</dd>
+        </dl>
+      </section>
+
+      <section class="panel" id="notes">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 / Notes</p>
+            <h2>Observed structure</h2>
+          </div>
+        </div>
+        <p class="quote">
+          This is a bridge layer: not the model itself, but the workflow around
+          prompting, image retrieval and note-driven automation.
+        </p>
+        <ul>
+          <li><code>main.py</code> defines the main CLI surface: generate, list models, switch models, samplers, config and likely other operational commands.</li>
+          <li><code>api.py</code> wraps the Stable Diffusion API endpoints for model listing, options, progress and <code>txt2img</code>.</li>
+          <li><code>watcher.py</code> polls Reflect notes for embedded generation triggers and appends result links back into Reflect.</li>
+          <li><code>trigger.py</code> and <code>trigger.ahk</code> suggest a faster interactive flow around copied prompts and hotkeys.</li>
+          <li><code>gdrive.py</code> uploads outputs to Google Drive and makes them publicly readable.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">03 / Surface Inventory</p>
+            <h2>Relevant files</h2>
+          </div>
+        </div>
+        <ul>
+          <li><code>main.py</code> — primary CLI application.</li>
+          <li><code>api.py</code> — Stable Diffusion API client.</li>
+          <li><code>server.py</code> — local FastAPI image bridge on port <code>8000</code>.</li>
+          <li><code>watcher.py</code> — polling automation against Reflect daily notes.</li>
+          <li><code>trigger.py</code> and <code>trigger.ahk</code> — manual/hotkey trigger path.</li>
+          <li><code>gdrive.py</code> — Google Drive upload helper.</li>
+          <li><code>config.py</code> — default settings and local config path resolution.</li>
+          <li><code>start.bat</code> — Windows startup sequence for the local server and AutoHotkey trigger.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">04 / Inconsistencies</p>
+            <h2>What the folder suggests</h2>
+          </div>
+        </div>
+        <ul>
+          <li><code>requirements.txt</code> lists only <code>typer[all]</code>, <code>rich</code>, <code>requests</code> and <code>Pillow</code>.</li>
+          <li>The visible code also imports <code>fastapi</code>, <code>uvicorn</code>, and multiple Google API/auth packages, which means the requirements file is incomplete for a clean setup.</li>
+          <li><code>gdrive_credentials.json</code> exists inside the project folder, which makes this copy operationally sensitive even though the archive only documents it.</li>
+          <li><code>__pycache__/</code> and <code>.claude/settings.local.json</code> look local/generated rather than core project source.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">05 / Classification</p>
+            <h2>Archive tags</h2>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">Creative Tools</span>
+          <span class="tag">Stable Diffusion</span>
+          <span class="tag">Python CLI</span>
+          <span class="tag">Reflect Automation</span>
+          <span class="tag">Google Drive</span>
+          <span class="tag">Private</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-item">
+        <span class="footer-label">Source scope</span>
+        <span>Documentation only. No project files were modified.</span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-label">Archive status</span>
+        <span>Fourth dossier recorded.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
