@@ -90,6 +90,23 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/4-clites-stable-diffusion.html" },
         { label: "Read notes", url: "./dossiers/4-clites-stable-diffusion.html#notes" }
       ]
+    },
+    {
+      number: "05",
+      title: "DeepSeek Daily FX ReportAnalizer",
+      category: "Research",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "RS-005",
+      description:
+        "A compact local toolset for testing DeepSeek API access and generating structured daily FX and macro reports from a fixed strategist-grade prompt.",
+      editorial:
+        "Documented as a report-generation microstack: a small localhost key tester, a direct Python report writer, stored output reports, and a sensitive environment layer around the API key.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/5-deepseek-daily-fx-reportanalizer.html" },
+        { label: "Read notes", url: "./dossiers/5-deepseek-daily-fx-reportanalizer.html#notes" }
+      ]
     }
   ]
 };

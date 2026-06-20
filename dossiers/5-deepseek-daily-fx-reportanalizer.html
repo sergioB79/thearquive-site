@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepSeek Daily FX ReportAnalizer / Dossier</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --text: #eadfcb;
+      --muted: #b9ac93;
+      --line: rgba(234, 223, 203, 0.2);
+      --panel: rgba(18, 18, 18, 0.88);
+      --accent: #eadfcb;
+      --mono: "Consolas", "SFMono-Regular", "Courier New", monospace;
+      --sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(234, 223, 203, 0.05), transparent 22%),
+        linear-gradient(180deg, #090909 0%, var(--bg) 40%, #080808 100%);
+      font-family: var(--sans);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.012) 0,
+        rgba(255, 255, 255, 0.012) 1px,
+        transparent 1px,
+        transparent 32px
+      );
+      opacity: 0.55;
+    }
+    a { color: inherit; }
+    .shell {
+      width: min(calc(100% - 40px), 1100px);
+      margin: 0 auto;
+      padding: 28px 0 52px;
+    }
+    .topbar, .meta-grid, .section-head, .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .topbar {
+      align-items: flex-start;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .backlink, .eyebrow, .meta-label, .tag, .footer-label {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .title, .section-head h2, .lead, .quote { font-family: var(--serif); }
+    .title {
+      margin: 18px 0 0;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.95fr);
+      gap: 28px;
+      padding: 34px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+    .lead {
+      margin: 22px 0 0;
+      max-width: 42rem;
+      font-size: 1.45rem;
+      line-height: 1.6;
+    }
+    .hero-card, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .hero-card {
+      padding: 22px;
+      align-self: start;
+    }
+    .meta-grid {
+      flex-wrap: wrap;
+      gap: 18px 26px;
+    }
+    .meta-item {
+      display: grid;
+      gap: 6px;
+      min-width: 120px;
+    }
+    .meta-value {
+      font-family: var(--mono);
+      line-height: 1.6;
+    }
+    main {
+      display: grid;
+      gap: 22px;
+      padding-top: 28px;
+    }
+    .panel { padding: 22px; }
+    .section-head {
+      align-items: end;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-head h2 {
+      margin: 10px 0 0;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+    }
+    .stack {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 14px 24px;
+      margin-top: 18px;
+    }
+    .stack dt {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .stack dd {
+      margin: 0;
+      line-height: 1.8;
+    }
+    .quote {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.25;
+    }
+    ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+    code {
+      font-family: var(--mono);
+      color: var(--accent);
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .tag {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+    }
+    .footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+    .footer-item {
+      display: grid;
+      gap: 6px;
+    }
+    @media (max-width: 860px) {
+      .hero, .topbar, .meta-grid, .section-head, .footer {
+        flex-direction: column;
+      }
+      .hero { grid-template-columns: 1fr; }
+      .stack { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <a class="backlink" href="../index.html">Back to archive</a>
+        <h1 class="title">DeepSeek Daily FX ReportAnalizer</h1>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">File No.</span>
+          <span class="meta-value">RS-005</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Category</span>
+          <span class="meta-value">Research</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">In Development / Private</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Dossier / Present State</p>
+        <p class="lead">
+          A compact local DeepSeek workflow split between a minimal localhost API
+          key tester and a Python script that generates daily macro/FX reports
+          from a fixed strategist-grade prompt with “deep thinking” enabled.
+        </p>
+      </div>
+      <aside class="hero-card">
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Languages</span>
+            <span class="meta-value">Node.js + Python</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Primary provider</span>
+            <span class="meta-value">DeepSeek API</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Outputs</span>
+            <span class="meta-value">Saved FX report text files</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Sensitive layer</span>
+            <span class="meta-value">Environment key file present</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 / Technical Reading</p>
+            <h2>What exists today</h2>
+          </div>
+        </div>
+        <dl class="stack">
+          <dt>Project type</dt>
+          <dd>A local report-generation utility and API test harness, not a production web application.</dd>
+          <dt>Framework</dt>
+          <dd>Minimal Node.js HTTP server plus standalone Python scripts using <code>requests</code>.</dd>
+          <dt>Routing</dt>
+          <dd>Very small local API surface: <code>GET /</code> for the static tester UI and <code>POST /api/test</code> to send a tiny DeepSeek chat completion request.</dd>
+          <dt>Frontend</dt>
+          <dd>A single static <code>index.html</code> for testing provider preset, base URL, model, API key and prompt.</dd>
+          <dt>Generation path</dt>
+          <dd><code>generate_fx_report_Prompt_DEEPSEEK.py</code> builds a large macro strategist prompt, calls <code>deepseek-chat</code>, and writes dated report text files.</dd>
+          <dt>Model discovery</dt>
+          <dd><code>list.py</code> calls <code>/models</code> on the DeepSeek API using the same environment-based key.</dd>
+          <dt>Artifacts</dt>
+          <dd>Two saved outputs are present: <code>fx_report_2026-02-16.txt</code> and <code>fx_report_2026-04-17.txt</code>.</dd>
+        </dl>
+      </section>
+
+      <section class="panel" id="notes">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 / Notes</p>
+            <h2>Observed structure</h2>
+          </div>
+        </div>
+        <p class="quote">
+          This is less an “analyzer” in the app sense and more a compact prompt
+          execution rig for daily FX intelligence.
+        </p>
+        <ul>
+          <li>The Node side is intentionally tiny and exists mainly to test whether an API key works safely on localhost without storing it.</li>
+          <li>The Python side carries the real domain logic: a fixed, highly structured strategist prompt for FX, metals and index bias generation.</li>
+          <li>The prompt explicitly enables DeepSeek “thinking” and asks for ranked macro setups, catalysts, invalidations and execution notes.</li>
+          <li>The project keeps real generated outputs, which makes it more than a blank scaffold.</li>
+          <li>The naming suggests report analysis, but the visible code is primarily report generation and API verification.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">03 / Surface Inventory</p>
+            <h2>Relevant files</h2>
+          </div>
+        </div>
+        <ul>
+          <li><code>server.js</code> — local HTTP server with one JSON test endpoint.</li>
+          <li><code>index.html</code> — browser UI for provider, model, key and prompt testing.</li>
+          <li><code>generate_fx_report_Prompt_DEEPSEEK.py</code> — main report generation script.</li>
+          <li><code>list.py</code> — helper for enumerating available DeepSeek models.</li>
+          <li><code>projectBriefing.txt</code> — explicit statement of intent and the report prompt specification.</li>
+          <li><code>fx_report_2026-02-16.txt</code> and <code>fx_report_2026-04-17.txt</code> — saved outputs.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">04 / Inconsistencies</p>
+            <h2>What the folder suggests</h2>
+          </div>
+        </div>
+        <ul>
+          <li><code>package.json</code> is named <code>ai-api-key-tester</code>, which is more generic than the folder identity and reflects only part of the project surface.</li>
+          <li>The `.env` file exists in the project root, which means this copy is operationally sensitive even though the archive only documents it.</li>
+          <li>The folder title says “ReportAnalizer”, but the visible scripts are mostly about report generation and key testing rather than downstream analytical processing.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">05 / Classification</p>
+            <h2>Archive tags</h2>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">Research</span>
+          <span class="tag">FX Reports</span>
+          <span class="tag">DeepSeek API</span>
+          <span class="tag">Prompt System</span>
+          <span class="tag">Local Tooling</span>
+          <span class="tag">Private</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-item">
+        <span class="footer-label">Source scope</span>
+        <span>Documentation only. No project files were modified.</span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-label">Archive status</span>
+        <span>Fifth dossier recorded.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
