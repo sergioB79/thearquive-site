@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUTOTRADE-BASE / Dossier</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --paper: #eadfcb;
+      --text: #eadfcb;
+      --muted: #b9ac93;
+      --line: rgba(234, 223, 203, 0.2);
+      --panel: #121212;
+      --accent: #d8ccb8;
+      --mono: "Consolas", "SFMono-Regular", "Courier New", monospace;
+      --sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(234, 223, 203, 0.05), transparent 22%),
+        linear-gradient(180deg, #090909 0%, var(--bg) 40%, #080808 100%);
+      font-family: var(--sans);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.012) 0,
+        rgba(255, 255, 255, 0.012) 1px,
+        transparent 1px,
+        transparent 32px
+      );
+      opacity: 0.55;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(calc(100% - 40px), 1100px);
+      margin: 0 auto;
+      padding: 28px 0 52px;
+    }
+
+    .topbar,
+    .section-head,
+    .meta-grid,
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .topbar {
+      align-items: flex-start;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .backlink,
+    .eyebrow,
+    .meta-label,
+    .tag,
+    .footer-label {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .title,
+    .section-head h2,
+    .lead,
+    .quote {
+      font-family: var(--serif);
+    }
+
+    .title {
+      margin: 18px 0 0;
+      font-size: clamp(3.2rem, 7vw, 6.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+      gap: 28px;
+      padding: 34px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .lead {
+      margin: 22px 0 0;
+      max-width: 40rem;
+      font-size: 1.45rem;
+      line-height: 1.6;
+    }
+
+    .hero-card,
+    .panel {
+      background: rgba(18, 18, 18, 0.88);
+      border: 1px solid var(--line);
+    }
+
+    .hero-card {
+      padding: 22px;
+      align-self: start;
+    }
+
+    .meta-grid {
+      flex-wrap: wrap;
+      gap: 18px 26px;
+    }
+
+    .meta-item {
+      display: grid;
+      gap: 6px;
+      min-width: 120px;
+    }
+
+    .meta-value {
+      font-family: var(--mono);
+      line-height: 1.6;
+    }
+
+    main {
+      display: grid;
+      gap: 22px;
+      padding-top: 28px;
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .section-head {
+      align-items: end;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head h2 {
+      margin: 10px 0 0;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+    }
+
+    .stack {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 14px 24px;
+      margin-top: 18px;
+    }
+
+    .stack dt {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .stack dd {
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    .quote {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.25;
+    }
+
+    ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+
+    code {
+      font-family: var(--mono);
+      color: var(--accent);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .footer-item {
+      display: grid;
+      gap: 6px;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .stack,
+      .topbar,
+      .section-head,
+      .meta-grid,
+      .footer {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+      }
+
+      .stack {
+        display: grid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <a class="backlink" href="../index.html">Back to archive</a>
+        <h1 class="title">AUTOTRADE-BASE</h1>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">File No.</span>
+          <span class="meta-value">TS-001</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Category</span>
+          <span class="meta-value">Trading Systems</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">In Development / Private</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Dossier / Present State</p>
+        <p class="lead">
+          A local TradingView signal router built as a single Node process with an
+          embedded dashboard, disk-based config and logs, and a TCP bridge toward
+          MT4/MT5 execution environments.
+        </p>
+      </div>
+      <aside class="hero-card">
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Language</span>
+            <span class="meta-value">Node.js / CommonJS</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Bridge</span>
+            <span class="meta-value">MQL4 EA + TCP socket</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Port</span>
+            <span class="meta-value">80 by default</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Surface</span>
+            <span class="meta-value">Dashboard + webhook API</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 / Technical Reading</p>
+            <h2>What exists today</h2>
+          </div>
+        </div>
+        <dl class="stack">
+          <dt>Framework</dt>
+          <dd>No web framework. The service uses Node's native <code>http</code> module and manual routing.</dd>
+          <dt>Routing</dt>
+          <dd>Direct route handling for <code>/</code>, <code>/dashboard</code>, <code>/webhook</code>, <code>/api/logs</code>, <code>/api/status</code>, <code>/api/config</code>, destination and strategy endpoints, and <code>/api/test</code>.</dd>
+          <dt>Styling system</dt>
+          <dd>The dashboard UI is embedded directly inside <code>server.js</code>, including HTML, CSS and client-side JavaScript.</dd>
+          <dt>Persistence</dt>
+          <dd>Configuration is stored in <code>config/config.json</code>. Signal history is appended to <code>logs/signals.jsonl</code>.</dd>
+          <dt>Deployment model</dt>
+          <dd>Local Windows runtime, usually on port <code>80</code>, with admin privileges or a reserved HTTP URL ACL.</dd>
+          <dt>Integration model</dt>
+          <dd>TradingView posts signals into <code>/webhook</code>; the server parses them and routes them either to a local file or to MT4/MT5 over TCP.</dd>
+          <dt>Related file</dt>
+          <dd>A MetaTrader Expert Advisor exists as <code>SignalReceiver.mq4</code> in the project root.</dd>
+        </dl>
+      </section>
+
+      <section class="panel" id="notes">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 / Notes</p>
+            <h2>Observed structure</h2>
+          </div>
+        </div>
+        <p class="quote">
+          This is infrastructure more than product: one process, one dashboard,
+          one webhook surface, one local bridge.
+        </p>
+        <ul>
+          <li>The project is effectively monolithic: core server logic, dashboard markup, styling, and client-side behavior live in one main file.</li>
+          <li>The dependency model is intentionally minimal. The existing lockfile does not list external npm packages.</li>
+          <li>The dashboard is not routed through a separate frontend build step; it is served directly by the Node process.</li>
+          <li>The configuration already contains real strategy and destination records, which suggests operational usage rather than a blank prototype.</li>
+          <li>The project appears designed for private/local operation, not public cloud deployment.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">03 / Surface Inventory</p>
+            <h2>Relevant files</h2>
+          </div>
+        </div>
+        <ul>
+          <li><code>server.js</code> — Node server, dashboard UI, webhook intake, routing, and MT4/MT5 socket dispatch.</li>
+          <li><code>config/config.json</code> — destinations and strategy mapping.</li>
+          <li><code>logs/signals.jsonl</code> — append-only signal log.</li>
+          <li><code>SignalReceiver.mq4</code> — MetaTrader-side bridge component.</li>
+          <li><code>README.md</code> — operational notes and local running instructions.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">04 / Inconsistencies</p>
+            <h2>What the documentation says versus what is present</h2>
+          </div>
+        </div>
+        <ul>
+          <li>The README mentions <code>npm start</code>, but there is no visible <code>package.json</code> in the folder.</li>
+          <li>The README points to <code>docs/mt4-ea.mq4</code>, while the available EA file is <code>SignalReceiver.mq4</code> at the project root.</li>
+          <li>The project describes itself as zero-dependency Node, which matches the minimal lockfile, but the repository metadata is incomplete for standard npm usage.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">05 / Classification</p>
+            <h2>Archive tags</h2>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">Trading Systems</span>
+          <span class="tag">Software</span>
+          <span class="tag">Webhook Intake</span>
+          <span class="tag">MT4 / MT5 Bridge</span>
+          <span class="tag">Local Infrastructure</span>
+          <span class="tag">Private</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-item">
+        <span class="footer-label">Source scope</span>
+        <span>Documentation only. No project files were modified.</span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-label">Archive status</span>
+        <span>First dossier recorded.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

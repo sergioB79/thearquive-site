@@ -22,5 +22,23 @@ window.archiveData = {
     "Public",
     "Private"
   ],
-  projects: []
+  projects: [
+    {
+      number: "01",
+      title: "AUTOTRADE-BASE",
+      category: "Trading Systems",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "TS-001",
+      description:
+        "A local TradingView signal router that receives webhook payloads, exposes a built-in dashboard, and forwards signals into MT4/MT5 execution environments over TCP.",
+      editorial:
+        "Documented as a working infrastructure base: one Node process, one embedded dashboard, one EA bridge, and local state on disk.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/1-autotrade-base.html" },
+        { label: "Read notes", url: "./dossiers/1-autotrade-base.html#notes" }
+      ]
+    }
+  ]
 };
