@@ -124,6 +124,40 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/6-forex-study-system.html" },
         { label: "Read notes", url: "./dossiers/6-forex-study-system.html#notes" }
       ]
+    },
+    {
+      number: "07",
+      title: "GeoStats",
+      category: "Research",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "RS-007",
+      description:
+        "A local OSINT and macro-intelligence dashboard forked from Crucix, redesigned as a full-screen Wallpaper Engine terminal with live sweeps, SSE updates, and a locked viewport HUD.",
+      editorial:
+        "Documented as a frontend-heavy fork over an existing intelligence engine: the source pipeline stays Crucix, while the visible work focuses on dashboard redesign, ambient display behavior, and local operational packaging.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/7-geostats.html" },
+        { label: "Read notes", url: "./dossiers/7-geostats.html#notes" }
+      ]
+    },
+    {
+      number: "08",
+      title: "Graffkit",
+      category: "Creative Tools",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "CT-008",
+      description:
+        "A Next.js graffiti image generator that converts structured UI choices into a branded OpenAI image prompt, then renders a generated mural preview without asking the user to write prompts.",
+      editorial:
+        "Documented as a narrow but coherent image-generation product: one polished landing surface, one prompt builder, one generation route, and a strong product voice around fast visual creation.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/8-graffkit.html" },
+        { label: "Read notes", url: "./dossiers/8-graffkit.html#notes" }
+      ]
     }
   ]
 };
