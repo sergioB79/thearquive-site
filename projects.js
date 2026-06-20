@@ -175,6 +175,23 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/9-mas-machinelearning.html" },
         { label: "Read notes", url: "./dossiers/9-mas-machinelearning.html#notes" }
       ]
+    },
+    {
+      number: "10",
+      title: "networkScanner",
+      category: "Software",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2025",
+      fileCode: "SW-010",
+      description:
+        "A compact PowerShell network-scanning utility for local subnets, built through several script iterations to find live hosts quickly, resolve hostnames, and export timestamped CSV results.",
+      editorial:
+        "Documented as a practical systems utility rather than a broad platform: multiple versions of the same scanner logic exist, successful output files are present, and the folder shows hands-on iteration more than formal productization.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/10-network-scanner.html" },
+        { label: "Read notes", url: "./dossiers/10-network-scanner.html#notes" }
+      ]
     }
   ]
 };
