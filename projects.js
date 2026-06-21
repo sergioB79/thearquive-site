@@ -295,6 +295,57 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/16-poisson-v2.html" },
         { label: "Read notes", url: "./dossiers/16-poisson-v2.html#notes" }
       ]
+    },
+    {
+      number: "17",
+      title: "Chemtrails — The Complete Picture",
+      category: "Research",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "RS-017",
+      description:
+        "A single-file research microsite that rebuts the chemtrail conspiracy through atmospheric science, equation-backed explanation, image analysis, and explicit source framing.",
+      editorial:
+        "Documented as a finished argument surface: one HTML page, one rhetorical sequence, one clear verdict, and enough design structure to feel like a publication rather than a note.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/17-chemtrails-complete-picture.html" },
+        { label: "Read notes", url: "./dossiers/17-chemtrails-complete-picture.html#notes" }
+      ]
+    },
+    {
+      number: "18",
+      title: "Structured AI Workflows",
+      category: "Editorial",
+      status: "In Development",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-018",
+      description:
+        "A versioned technical playbook that turns Claude Code usage into a formal operating system for setup, permissions, MCP, automation, team practice, and verification.",
+      editorial:
+        "Documented as an editorial infrastructure guide: more doctrine than tutorial, with the page itself acting as a durable operating manual for AI-assisted development.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/18-structured-ai-workflows.html" },
+        { label: "Read notes", url: "./dossiers/18-structured-ai-workflows.html#notes" }
+      ]
+    },
+    {
+      number: "19",
+      title: "5dotLineGame",
+      category: "Experiments",
+      status: "Paused",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "EX-019",
+      description:
+        "A Create React App game scaffold for a five-dot line concept, preserving package tooling and dependency installation but not the authored gameplay source itself.",
+      editorial:
+        "Documented as an interrupted setup rather than a playable build: the archive keeps the scaffolding, the intent, and the dependency footprint, but not the actual game logic.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/19-5dotlinegame.html" },
+        { label: "Read notes", url: "./dossiers/19-5dotlinegame.html#notes" }
+      ]
     }
   ]
 };
