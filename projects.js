@@ -1253,6 +1253,78 @@ window.archiveData = {
         { label: "Read notes", url: "./dossiers/71-wave2manual.html#notes" },
         { label: "Source / Repo", url: "https://github.com/sergioB79/Wave2Manual" }
       ]
+    },
+    {
+      number: "72",
+      title: "Escala Alimentos",
+      category: "Research",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "RS-072",
+      description:
+        "A static food-health ranking interface that scores foods from 0 to 500 and organizes them by tier, category, and searchable benefit summary.",
+      editorial:
+        "Documented as a codified ranking surface rather than a wellness brand page: the taxonomy is the product.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/72-escala-alimentos.html" },
+        { label: "Read notes", url: "./dossiers/72-escala-alimentos.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/escalaAlimentos" }
+      ]
+    },
+    {
+      number: "73",
+      title: "Obsidian AI Diary",
+      category: "Creative Tools",
+      status: "Active",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "CT-073",
+      description:
+        "A Python toolkit that transforms ChatGPT exports into an Obsidian diary vault with semantic tags, related-note links, and cleanup utilities.",
+      editorial:
+        "Documented as memory infrastructure: a bridge from conversational exports to a durable and searchable personal archive.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/73-obsidian-ai-diary.html" },
+        { label: "Read notes", url: "./dossiers/73-obsidian-ai-diary.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/obsidian-ai-diary-repo" }
+      ]
+    },
+    {
+      number: "74",
+      title: "Loop Room",
+      category: "Experiments",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "EX-074",
+      description:
+        "An interactive audiovisual web piece with looping video, message bubbles, glitch effects, ambient sound, and a Firebase-backed live click counter.",
+      editorial:
+        "Documented as an atmosphere machine more than a website: the meaning emerges from interaction, repetition, and drift.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/74-loop-room.html" },
+        { label: "Read notes", url: "./dossiers/74-loop-room.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/loop-room" }
+      ]
+    },
+    {
+      number: "75",
+      title: "Low Light Notes",
+      category: "Editorial",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-075",
+      description:
+        "A dark literary archive with static posts, JSON-driven metadata, ambient audio reactions, and a ritualized reading surface.",
+      editorial:
+        "Documented as a literary installation disguised as a notes archive: atmosphere is treated as part of the writing itself.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/75-low-light-notes.html" },
+        { label: "Read notes", url: "./dossiers/75-low-light-notes.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/lowlihghtnotes" }
+      ]
     }
   ]
 };
