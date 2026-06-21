@@ -1032,6 +1032,81 @@ window.archiveData = {
         { label: "Read notes", url: "./dossiers/59-poker-ratinho.html#notes" },
         { label: "Source / Repo", url: "https://github.com/sergioB79/poker-ratinho" }
       ]
+    },
+    {
+      number: "60",
+      title: "The Forge",
+      category: "Research",
+      status: "Active",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "RS-060",
+      description:
+        "A research and editorial judgment system that combines a Python content pipeline with a Next.js publication layer for dossiers, archives, and pass-fail cultural classification.",
+      editorial:
+        "Documented as a methodology engine made visible: the site matters, but the real project is the pipeline that turns judgment into structured publication.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/60-the-forge.html" },
+        { label: "Read notes", url: "./dossiers/60-the-forge.html#notes" },
+        { label: "Live build", url: "https://the-forge-lime.vercel.app" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/theForge" }
+      ]
+    },
+    {
+      number: "61",
+      title: "Palm Reader App",
+      category: "Experiments",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "EX-061",
+      description:
+        "A static-and-Express AI palm reading app that uploads two hand images, sends them to Gemini vision, and stages the result as a brief-to-detailed mystical funnel.",
+      editorial:
+        "Documented as a compact consumer experiment: the core move is the theatrical product framing around a very small technical surface.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/61-palm-reader-app.html" },
+        { label: "Read notes", url: "./dossiers/61-palm-reader-app.html#notes" },
+        { label: "Live build", url: "https://palm-reader-app.vercel.app" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/palm-reader-app" }
+      ]
+    },
+    {
+      number: "62",
+      title: "Foguetão do GOAT",
+      category: "Trading Systems",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "TS-062",
+      description:
+        "A gated Next.js trading portal for notes, reports, accounts, and contact flows, using GitHub-backed JSON persistence instead of a conventional database.",
+      editorial:
+        "Documented as a personal operating surface rather than a public product: improvised persistence and light auth are part of the project’s real character.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/62-foguetao-do-goat.html" },
+        { label: "Read notes", url: "./dossiers/62-foguetao-do-goat.html#notes" },
+        { label: "Live build", url: "https://foguetao-do-goat.vercel.app" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/foguetao-do-goat" }
+      ]
+    },
+    {
+      number: "63",
+      title: "UCL 2026",
+      category: "Research",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "RS-063",
+      description:
+        "A single-page Champions League round-of-16 intelligence study with matchup analysis, bracket logic, probabilities, and editorial forecasting.",
+      editorial:
+        "Documented as a dated analytical artifact: technically tiny, but tightly composed as a browser-native scouting report.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/63-ucl-2026.html" },
+        { label: "Read notes", url: "./dossiers/63-ucl-2026.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/ucl2026" }
+      ]
     }
   ]
 };
