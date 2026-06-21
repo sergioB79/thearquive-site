@@ -17,6 +17,7 @@ window.archiveData = {
     "All",
     "Active",
     "In Development",
+    "Prototype",
     "Paused",
     "Archived",
     "Public",
@@ -191,6 +192,74 @@ window.archiveData = {
       links: [
         { label: "Open dossier", url: "./dossiers/10-network-scanner.html" },
         { label: "Read notes", url: "./dossiers/10-network-scanner.html#notes" }
+      ]
+    },
+    {
+      number: "11",
+      title: "Café Custos",
+      category: "Editorial",
+      status: "In Development",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-011",
+      description:
+        "A two-page Portuguese editorial microsite about habitual coffee spending, combining a magazine-style longform landing page with an interactive cost calculator.",
+      editorial:
+        "Documented as a hybrid publication object: not just an article and not just a calculator, but an argument staged first through editorial persuasion and then through a numerical self-audit.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/11-cafe-custos.html" },
+        { label: "Read notes", url: "./dossiers/11-cafe-custos.html#notes" }
+      ]
+    },
+    {
+      number: "12",
+      title: "colorcombo",
+      category: "Creative Tools",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "CT-012",
+      description:
+        "A single-file browser utility that generates five-color random palettes and exports them as HEX, TXT, JSON, or HTML snippets.",
+      editorial:
+        "Documented as a minimal utility prototype: one HTML file, no dependencies, immediate usefulness, and no surrounding product layer.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/12-colorcombo.html" },
+        { label: "Read notes", url: "./dossiers/12-colorcombo.html#notes" }
+      ]
+    },
+    {
+      number: "13",
+      title: "(Im)Probable",
+      category: "Editorial",
+      status: "In Development",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-013",
+      description:
+        "A future-facing publication archive signed by Ash Orrn, combining a client-rendered editorial front end with generated static share pages for every dispatch and About route.",
+      editorial:
+        "Documented as the largest and most structurally complete publication object in the archive so far: editorial worldbuilding, content parsing, route handling, metadata generation, analytics, and deployment conventions are all already in place.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/13-improbable.html" },
+        { label: "Read notes", url: "./dossiers/13-improbable.html#notes" }
+      ]
+    },
+    {
+      number: "14",
+      title: "(IN)CONTINUIDADE",
+      category: "Research",
+      status: "Archived",
+      visibility: "Public",
+      year: "2025",
+      fileCode: "RS-014",
+      description:
+        "A documentary microsite about a prolonged Vodafone service interruption in Portugal, built as a factual timeline with legal framing, service-state comparisons, and supporting document slots.",
+      editorial:
+        "Documented as a case-record publication rather than a generic complaint page: the rhetoric is controlled, the chronology is explicit, and the project is designed to preserve facts after the case is effectively closed.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/14-incontinuidade.html" },
+        { label: "Read notes", url: "./dossiers/14-incontinuidade.html#notes" }
       ]
     }
   ]
