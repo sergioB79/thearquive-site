@@ -162,6 +162,17 @@ button {
   line-height: 1.5;
 }
 
+.hero-anchor {
+  max-width: 36rem;
+  margin: 20px 0 0;
+  color: var(--paper-soft);
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
 .hero-line {
   margin: 36px 0 0;
   padding: 22px 24px;
@@ -596,6 +607,10 @@ button {
 
   .hero-text {
     font-size: 1.25rem;
+  }
+
+  .hero-anchor {
+    font-size: 0.84rem;
   }
 
   .hero-line {

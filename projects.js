@@ -1325,6 +1325,78 @@ window.archiveData = {
         { label: "Read notes", url: "./dossiers/75-low-light-notes.html#notes" },
         { label: "Source / Repo", url: "https://github.com/sergioB79/lowlihghtnotes" }
       ]
+    },
+    {
+      number: "76",
+      title: "Superfícies Soltas em Mim",
+      category: "Editorial",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-076",
+      description:
+        "A single-page literary web piece that publishes one long Portuguese text with no framework, no navigation layer, and no supporting app structure.",
+      editorial:
+        "Documented as a digital sheet of writing rather than a website: the repo is almost nothing except the text and the decision to place it online.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/76-superficies-soltas-em-mim.html" },
+        { label: "Read notes", url: "./dossiers/76-superficies-soltas-em-mim.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/tempPG" }
+      ]
+    },
+    {
+      number: "77",
+      title: "InnovativeExponent",
+      category: "Editorial",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-077",
+      description:
+        "A static engineering and construction brochure site built from plain HTML, standalone CSS, and an image set with no framework or build tooling.",
+      editorial:
+        "Documented as a corporate presence artifact: a direct communication surface designed for trust, service framing, and contact clarity.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/77-innovative-exponent.html" },
+        { label: "Read notes", url: "./dossiers/77-innovative-exponent.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/InnovativeExponent" }
+      ]
+    },
+    {
+      number: "78",
+      title: "Tentativa Primorada",
+      category: "Editorial",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-078",
+      description:
+        "A static identity showcase for Tentativa Primorada, combining logo assets, concept framing, custom CSS, and a small JavaScript-driven gallery.",
+      editorial:
+        "Documented as a brand dossier rather than a brand platform: the site exists to present visual reasoning and option sets, not to operate a product.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/78-tentativa-primorada.html" },
+        { label: "Read notes", url: "./dossiers/78-tentativa-primorada.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/TentativaPrimorada" }
+      ]
+    },
+    {
+      number: "79",
+      title: "Uplifting Balls",
+      category: "Experiments",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "EX-079",
+      description:
+        "A canvas-based micro-site where bouncing balls reveal encouraging messages while Firebase logs visits and interaction data for a separate admin page.",
+      editorial:
+        "Documented as a behavioral web sketch with measurement built in: delight on the front surface, instrumentation on the back surface.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/79-uplifting-balls.html" },
+        { label: "Read notes", url: "./dossiers/79-uplifting-balls.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/upliftingBalls" }
+      ]
     }
   ]
 };
