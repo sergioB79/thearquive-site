@@ -482,6 +482,159 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/27-idea-debugger.html" },
         { label: "Read notes", url: "./dossiers/27-idea-debugger.html#notes" }
       ]
+    },
+    {
+      number: "28",
+      title: "Artful Split",
+      category: "Creative Tools",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "CT-028",
+      description:
+        "A Vite-based AI image transformation app that lets users split a portrait, pick a style preset, and send the composition through a Supabase-hosted generation path.",
+      editorial:
+        "Documented as the hosted, UX-heavier branch of the face-splitting concept: more product shell, more interface polish, and more cloud integration than the earlier local prototype.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/28-artful-split.html" },
+        { label: "Read notes", url: "./dossiers/28-artful-split.html#notes" }
+      ]
+    },
+    {
+      number: "29",
+      title: "KaleidoLab",
+      category: "Creative Tools",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "CT-029",
+      description:
+        "A one-file WebGL kaleidoscope and fractal generator with real-time controls, presets, and still/video export from the browser.",
+      editorial:
+        "Documented as a complete miniature instrument: compact, self-contained, and more useful than its single-file surface initially suggests.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/29-kaleidolab.html" },
+        { label: "Read notes", url: "./dossiers/29-kaleidolab.html#notes" }
+      ]
+    },
+    {
+      number: "30",
+      title: "PolyIntona",
+      category: "Creative Tools",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "CT-030",
+      description:
+        "A mouse-driven desktop software instrument inspired by Music Mouse, built with JUCE around an XY pad, harmonic controls, and arpeggiation logic.",
+      editorial:
+        "Documented as a playable software-instrument prototype: the core interaction model is already clear even if the build remains local and development-oriented.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/30-polyintona.html" },
+        { label: "Read notes", url: "./dossiers/30-polyintona.html#notes" }
+      ]
+    },
+    {
+      number: "31",
+      title: "NBA CGM",
+      category: "Research",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "RS-031",
+      description:
+        "A large NBA data and dashboard workspace that preserves Python collection tools, scoreboard utilities, multiple web dashboard attempts, and archived releases in one folder.",
+      editorial:
+        "Documented as a version archive rather than a single app: the interesting object here is the accumulation of NBA tooling attempts and dashboard generations over time.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/31-nba-cgm.html" },
+        { label: "Read notes", url: "./dossiers/31-nba-cgm.html#notes" }
+      ]
+    },
+    {
+      number: "32",
+      title: "Noctarion",
+      category: "Editorial",
+      status: "Archived",
+      visibility: "Public",
+      year: "2025",
+      fileCode: "ED-032",
+      description:
+        "A dark, meditative static presence page for the Noctarion identity, built around particles, serif branding, field statements, and support links.",
+      editorial:
+        "Documented as a finished presence surface: concise, atmospheric, and fully organized around tone rather than feature depth.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/32-noctarion.html" },
+        { label: "Read notes", url: "./dossiers/32-noctarion.html#notes" }
+      ]
+    },
+    {
+      number: "33",
+      title: "PROBABLE",
+      category: "Research",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "RS-033",
+      description:
+        "A file-first daily intelligence brief pipeline that ingests sources, runs specialist prompts, renders outputs, and feeds a nested Next.js reading site.",
+      editorial:
+        "Documented as the machine behind a publication voice: pipeline first, site second, with outputs treated as the central durable artifact.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/33-probable.html" },
+        { label: "Read notes", url: "./dossiers/33-probable.html#notes" }
+      ]
+    },
+    {
+      number: "34",
+      title: "ReflectBridge",
+      category: "Software",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "SW-034",
+      description:
+        "A tiny Flask bridge that receives note payloads from an external AI workflow and forwards them into Reflect through its API.",
+      editorial:
+        "Documented as infrastructure glue: narrow in scope, operationally useful, and clearly part of a larger private toolchain.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/34-reflectbridge.html" },
+        { label: "Read notes", url: "./dossiers/34-reflectbridge.html#notes" }
+      ]
+    },
+    {
+      number: "35",
+      title: "Echo",
+      category: "Software",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "SW-035",
+      description:
+        "A large SvelteKit and Tauri desktop workspace for channels, tagged messages, calendars, vaults, and local LLM-assisted knowledge work.",
+      editorial:
+        "Documented as a private operating environment rather than a simple messaging app: its true scale lives in the local models, runtime assets, and knowledge tooling surrounding the UI.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/35-echo.html" },
+        { label: "Read notes", url: "./dossiers/35-echo.html#notes" }
+      ]
+    },
+    {
+      number: "36",
+      title: "The Mirror Test",
+      category: "Experiments",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "EX-036",
+      description:
+        "A React self-test app about narcissistic patterns, built as a single-flow questionnaire with archetype scoring and a deliberately confrontational tone.",
+      editorial:
+        "Documented as a psychological interaction experiment more than a clinical tool: the value is in the staged emotional mirror the app tries to hold up to the user.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/36-the-mirror-test.html" },
+        { label: "Read notes", url: "./dossiers/36-the-mirror-test.html#notes" }
+      ]
     }
   ]
 };
