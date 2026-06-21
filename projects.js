@@ -1471,6 +1471,132 @@ window.archiveData = {
         { label: "Live build", url: "https://nba-dashboard-vercel.vercel.app" },
         { label: "Source / Repo", url: "https://github.com/sergioB79/nba-dashboard-vercel" }
       ]
+    },
+    {
+      number: "84",
+      title: "NHL Dashboard Vercel",
+      category: "Software",
+      status: "Active",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "SW-084",
+      description:
+        "A Vercel-deployed NHL dashboard built from one static HTML board, a lightweight Python service layer, and cached files generated from league data endpoints.",
+      editorial:
+        "Documented as the NHL sibling of an existing sports board pattern: same lean shipping logic, different league substrate and operational frictions.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/84-nhl-dashboard-vercel.html" },
+        { label: "Read notes", url: "./dossiers/84-nhl-dashboard-vercel.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/nhl-dashboard-vercel" }
+      ]
+    },
+    {
+      number: "85",
+      title: "CRAPS — Manual do Iniciado",
+      category: "Editorial",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-085",
+      description:
+        "A single-page web manual that teaches craps through designed long-form explanation, custom visual framing, and a publication-like reading experience.",
+      editorial:
+        "Documented as an initiation booklet rather than betting software: the point is understanding and atmosphere, not automation.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/85-craps-manual-do-iniciado.html" },
+        { label: "Read notes", url: "./dossiers/85-craps-manual-do-iniciado.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/craps" }
+      ]
+    },
+    {
+      number: "86",
+      title: "Proposta de Contributos",
+      category: "Research",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "RS-086",
+      description:
+        "A one-page civic-policy text that publishes formal contributions to a municipal resident-permit regulation as a browser-readable document.",
+      editorial:
+        "Documented as a preserved intervention text: not product code, but structured civic reasoning made public and durable.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/86-proposta-de-contributos.html" },
+        { label: "Read notes", url: "./dossiers/86-proposta-de-contributos.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/prposta" }
+      ]
+    },
+    {
+      number: "87",
+      title: "Privacy Policy",
+      category: "Software",
+      status: "Archived",
+      visibility: "Public",
+      year: "2025",
+      fileCode: "SW-087",
+      description:
+        "A tiny static privacy-policy page for a GPT surface, containing legal disclosure and contact information with no surrounding product logic.",
+      editorial:
+        "Documented as a compliance artifact inside the wider project ecosystem: small, utilitarian, but still part of how software appears publicly.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/87-privacy-policy.html" },
+        { label: "Read notes", url: "./dossiers/87-privacy-policy.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/privacy-policy" }
+      ]
+    },
+    {
+      number: "88",
+      title: "Sementecrua Comments",
+      category: "Unreleased",
+      status: "Paused",
+      visibility: "Public",
+      year: "2025",
+      fileCode: "UR-088",
+      description:
+        "An empty public repository that preserves only the name of an intended comment-related project, with no implementation files or scaffold.",
+      editorial:
+        "Documented as pure direction: a surviving project title without a surviving body, which is exactly why the archive should keep it.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/88-sementecrua-comments.html" },
+        { label: "Read notes", url: "./dossiers/88-sementecrua-comments.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/sementecrua-comments" }
+      ]
+    },
+    {
+      number: "89",
+      title: "Betting Brain",
+      category: "Software",
+      status: "In Development",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "SW-089",
+      description:
+        "A Next.js 14 betting-membership scaffold with public tips, VIP role gating, Stripe subscription flows, Prisma data models, and legal support routes.",
+      editorial:
+        "Documented as a commercial product skeleton disguised by a generic repo name: the monetization and access model are already more defined than the title suggests.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/89-betting-brain.html" },
+        { label: "Read notes", url: "./dossiers/89-betting-brain.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/blank-project" }
+      ]
+    },
+    {
+      number: "90",
+      title: "Daily Motivational Message",
+      category: "Creative Tools",
+      status: "Archived",
+      visibility: "Public",
+      year: "2025",
+      fileCode: "CT-090",
+      description:
+        "A README-first automation guide for generating and emailing personalized daily messages through Google Apps Script, Google Drive, Gmail, and OpenAI.",
+      editorial:
+        "Documented as a reproducible tool pattern rather than an app repository: the value is in the explained workflow and code recipe.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/90-daily-motivational-message.html" },
+        { label: "Read notes", url: "./dossiers/90-daily-motivational-message.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/DailyMotivationalMessage_desc" }
+      ]
     }
   ]
 };
