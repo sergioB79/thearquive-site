@@ -1,6 +1,6 @@
 window.archiveData = {
   meta: {
-    updated: "20.06.2026",
+    updated: "21.06.2026",
     identity: "Not a portfolio. An archive of direction."
   },
   categories: [
@@ -260,6 +260,40 @@ window.archiveData = {
       links: [
         { label: "Open dossier", url: "./dossiers/14-incontinuidade.html" },
         { label: "Read notes", url: "./dossiers/14-incontinuidade.html#notes" }
+      ]
+    },
+    {
+      number: "15",
+      title: "openinterpreter",
+      category: "Experiments",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "EX-015",
+      description:
+        "A copied Python virtual environment built around Open Interpreter, preserving a local agent runtime with CLI entry points and a dense stack of AI, notebook, and utility dependencies.",
+      editorial:
+        "Documented as an environment snapshot rather than a product codebase: the authored work here is the assembled toolchain itself, not an application surface or deployable interface.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/15-openinterpreter.html" },
+        { label: "Read notes", url: "./dossiers/15-openinterpreter.html#notes" }
+      ]
+    },
+    {
+      number: "16",
+      title: "poisson_V2",
+      category: "Trading Systems",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "TS-016",
+      description:
+        "A local multi-asset MT5 research pipeline that backtests intraday range breaks, computes Poisson confirmation metrics, ranks setups by direction, and generates Portuguese daily reports for email distribution.",
+      editorial:
+        "Documented as a working decision engine rather than a public product: data ingestion, statistical processing, output ranking, and AI-assisted delivery are already connected into one private daily workflow.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/16-poisson-v2.html" },
+        { label: "Read notes", url: "./dossiers/16-poisson-v2.html#notes" }
       ]
     }
   ]
