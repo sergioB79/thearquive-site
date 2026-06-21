@@ -1181,6 +1181,78 @@ window.archiveData = {
         { label: "Read notes", url: "./dossiers/67-anuncio-page.html#notes" },
         { label: "Source / Repo", url: "https://github.com/sergioB79/anuncio-page" }
       ]
+    },
+    {
+      number: "68",
+      title: "SteveSite",
+      category: "Creative Tools",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "CT-068",
+      description:
+        "A static digital-artist portfolio template with custom CSS, a small JavaScript project data layer, modal detail views, and no build-step overhead.",
+      editorial:
+        "Documented as a reusable presentation tool rather than a finished authored portfolio: the value is in the structure it offers to someone else’s work.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/68-steve-site.html" },
+        { label: "Read notes", url: "./dossiers/68-steve-site.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/steveSite" }
+      ]
+    },
+    {
+      number: "69",
+      title: "Synthesis",
+      category: "Trading Systems",
+      status: "Active",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "TS-069",
+      description:
+        "A synthesis pipeline that merges technical analysis, macro sentiment, calendar risk, and per-asset LLM interpretation into dated HTML market briefings.",
+      editorial:
+        "Documented as a pipeline publication surface: the public HTML is only the visible tip of a larger integration system.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/69-synthesis.html" },
+        { label: "Read notes", url: "./dossiers/69-synthesis.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/synthesis" }
+      ]
+    },
+    {
+      number: "70",
+      title: "Prognóstico",
+      category: "Editorial",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-070",
+      description:
+        "A one-page sports-betting publication surface that uses a newspaper-like visual system to package tips, analysis, and betting commentary.",
+      editorial:
+        "Documented as betting media rather than betting software: the page is about framing and voice, not automation.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/70-prognostico.html" },
+        { label: "Read notes", url: "./dossiers/70-prognostico.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/prognostico" }
+      ]
+    },
+    {
+      number: "71",
+      title: "Wave2Manual",
+      category: "Trading Systems",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "TS-071",
+      description:
+        "A static manual for an Elliott-wave indicator, explaining Wave 2 structure, Markov confidence, setup interpretation, and usage through screenshots and anchored documentation.",
+      editorial:
+        "Documented as documentation infrastructure for a trading tool: the repo teaches interpretation rather than executing the system itself.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/71-wave2manual.html" },
+        { label: "Read notes", url: "./dossiers/71-wave2manual.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/Wave2Manual" }
+      ]
     }
   ]
 };
