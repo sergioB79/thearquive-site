@@ -1397,6 +1397,80 @@ window.archiveData = {
         { label: "Read notes", url: "./dossiers/79-uplifting-balls.html#notes" },
         { label: "Source / Repo", url: "https://github.com/sergioB79/upliftingBalls" }
       ]
+    },
+    {
+      number: "80",
+      title: "Chart Analysis Pipeline",
+      category: "Trading Systems",
+      status: "Active",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "TS-080",
+      description:
+        "A trading-analysis publication pipeline that turns TradingView screenshots into consolidated asset reports, dated HTML issues, and a GitHub Pages archive.",
+      editorial:
+        "Documented as an operational publishing system whose public repo preserves the outputs and the doctrine, while much of the real machinery remains offstage.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/80-chart-analysis-pipeline.html" },
+        { label: "Read notes", url: "./dossiers/80-chart-analysis-pipeline.html#notes" },
+        { label: "Live build", url: "https://sergiob79.github.io/analise/" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/analise" }
+      ]
+    },
+    {
+      number: "81",
+      title: "COT Report",
+      category: "Research",
+      status: "Active",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "RS-081",
+      description:
+        "A compact static archive of weekly Commitment of Traders analysis, organized as dated issue pages with source-week and inference-cost metadata.",
+      editorial:
+        "Documented as a market-research ledger rather than a product surface: one repeated analytical format, one narrow publishing ritual, minimal ornament.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/81-cot-report.html" },
+        { label: "Read notes", url: "./dossiers/81-cot-report.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/cot-report" }
+      ]
+    },
+    {
+      number: "82",
+      title: "Macro Sentiment",
+      category: "Research",
+      status: "Active",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "RS-082",
+      description:
+        "A static macro-analysis archive that publishes dated HTML runs and keeps model-cost visibility as part of the public record.",
+      editorial:
+        "Documented as generated judgment made durable: sparse on purpose, with the archive behaving more like a preserved notebook than a media product.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/82-macro-sentiment.html" },
+        { label: "Read notes", url: "./dossiers/82-macro-sentiment.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/macro-sentiment" }
+      ]
+    },
+    {
+      number: "83",
+      title: "NBA Dashboard Vercel",
+      category: "Software",
+      status: "Active",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "SW-083",
+      description:
+        "A Vercel-deployed NBA dashboard built from one static HTML surface, a lightweight Flask API, cached CSV and JSON data, and Python fetch scripts.",
+      editorial:
+        "Documented as a lean redeployment of the NBA Edge Finder idea: less framework ceremony, more direct shipping of the data board itself.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/83-nba-dashboard-vercel.html" },
+        { label: "Read notes", url: "./dossiers/83-nba-dashboard-vercel.html#notes" },
+        { label: "Live build", url: "https://nba-dashboard-vercel.vercel.app" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/nba-dashboard-vercel" }
+      ]
     }
   ]
 };
