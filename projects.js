@@ -346,6 +346,57 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/19-5dotlinegame.html" },
         { label: "Read notes", url: "./dossiers/19-5dotlinegame.html#notes" }
       ]
+    },
+    {
+      number: "20",
+      title: "TheMATRIXfx / Daily Setup Finder Site",
+      category: "Trading Systems",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "TS-020",
+      description:
+        "A Next.js market-brief publication system that ingests daily markdown reports from Google Drive, stores historical snapshots, caches the latest output, and exposes free and premium trading surfaces.",
+      editorial:
+        "Documented as a serious pipeline product rather than a static site: ingestion, validation, persistence, caching, and premium presentation are already wired together into one trading publication system.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/20-thematrixfx-daily-setup-finder.html" },
+        { label: "Read notes", url: "./dossiers/20-thematrixfx-daily-setup-finder.html#notes" }
+      ]
+    },
+    {
+      number: "21",
+      title: "AI Comparison Study",
+      category: "Research",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "RS-021",
+      description:
+        "A static comparative AI model study presented as a designed publication page, with a minimal Vercel counter API and supporting research assets around it.",
+      editorial:
+        "Documented as a finished publication object: one designed essay surface, one tiny serverless accessory, and a preserved source document behind the web-facing analysis.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/21-ai-models-comparison-study.html" },
+        { label: "Read notes", url: "./dossiers/21-ai-models-comparison-study.html#notes" }
+      ]
+    },
+    {
+      number: "22",
+      title: "AI-ChatHub",
+      category: "Software",
+      status: "In Development",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "SW-022",
+      description:
+        "A multi-provider AI chat client built with Vite, React, TypeScript, and Tauri, designed to manage model choice, attachments, history, pricing, and side-by-side comparison from one interface.",
+      editorial:
+        "Documented as an operator tool with real application depth already present: runtime abstraction, provider routing, conversation state, cost visibility, and compare workflows all point to a practical local control surface.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/22-ai-chathub.html" },
+        { label: "Read notes", url: "./dossiers/22-ai-chathub.html#notes" }
+      ]
     }
   ]
 };
