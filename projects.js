@@ -1107,6 +1107,80 @@ window.archiveData = {
         { label: "Read notes", url: "./dossiers/63-ucl-2026.html#notes" },
         { label: "Source / Repo", url: "https://github.com/sergioB79/ucl2026" }
       ]
+    },
+    {
+      number: "64",
+      title: "Dashboard Page",
+      category: "Software",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "SW-064",
+      description:
+        "A Vite and React personal operations dashboard with modular widgets, draggable layouts, mock-to-live data services, and a broad shadcn-style UI surface.",
+      editorial:
+        "Documented as a control-room frame rather than a finished workstation: most of the intelligence is in the widget architecture and layout system, not in current live integrations.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/64-dashboard-page.html" },
+        { label: "Read notes", url: "./dossiers/64-dashboard-page.html#notes" },
+        { label: "Live build", url: "https://dashboard-page-six.vercel.app" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/dashboardPage" }
+      ]
+    },
+    {
+      number: "65",
+      title: "NeuralPip",
+      category: "Editorial",
+      status: "Active",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-065",
+      description:
+        "A Hugo publication about AI, code, markets, and ethics, using PaperMod with custom partials to publish trading guides and reflective essays.",
+      editorial:
+        "Documented as lightweight editorial infrastructure: static on purpose, with just enough customization to hold a hybrid identity between trading notebook and AI-era essay site.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/65-neural-pip.html" },
+        { label: "Read notes", url: "./dossiers/65-neural-pip.html#notes" },
+        { label: "Live build", url: "https://neural-pip.vercel.app" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/NeuralPip" }
+      ]
+    },
+    {
+      number: "66",
+      title: "O Grande Tabuleiro 2026",
+      category: "Research",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "RS-066",
+      description:
+        "A static geopolitical analysis issue for May 2026, combining essay structure, strategic cards, timelines, and Chart.js graphics in one dense web report.",
+      editorial:
+        "Documented as a web-native dossier rather than a site: technically spare, compositionally deliberate, and tied to a specific analytical moment.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/66-o-grande-tabuleiro-2026.html" },
+        { label: "Read notes", url: "./dossiers/66-o-grande-tabuleiro-2026.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/O-GRANDE-TABULEIRO---MAIO-2026" }
+      ]
+    },
+    {
+      number: "67",
+      title: "Anuncio Page",
+      category: "Trading Systems",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "TS-067",
+      description:
+        "A one-page static conversion surface for private trading tutoring, built around scarcity, positioning, and a single external application CTA.",
+      editorial:
+        "Documented as a commercial artifact inside the trading orbit: technically tiny, but very clear about what it wants the visitor to do.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/67-anuncio-page.html" },
+        { label: "Read notes", url: "./dossiers/67-anuncio-page.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/anuncio-page" }
+      ]
     }
   ]
 };
