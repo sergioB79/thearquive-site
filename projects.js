@@ -890,6 +890,148 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/51-ultimate-prompt-maker.html" },
         { label: "Read notes", url: "./dossiers/51-ultimate-prompt-maker.html#notes" }
       ]
+    },
+    {
+      number: "52",
+      title: "Almanaque Diário",
+      category: "Editorial",
+      status: "Active",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-052",
+      description:
+        "A one-page daily almanac for Nazaré that gathers calendars, history, astronomy, reflection, and vocabulary into a refined print-like editorial issue.",
+      editorial:
+        "Documented as a daily publication object rather than an app: tiny in code volume, but strong in format, voice, and compositional control.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/52-almanaque.html" },
+        { label: "Read notes", url: "./dossiers/52-almanaque.html#notes" }
+      ]
+    },
+    {
+      number: "53",
+      title: "Mundial 2026",
+      category: "Editorial",
+      status: "Active",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-053",
+      description:
+        "A static 2026 World Cup editorial microsite that combines tactical guide pages, a running tournament diary, and Portugal-specific preview and chronicle writing.",
+      editorial:
+        "Documented as a sports publication with issue logic rather than a scores site: the value lives in the voice, structure, and layered narrative around the tournament.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/53-mundial-2026.html" },
+        { label: "Read notes", url: "./dossiers/53-mundial-2026.html#notes" }
+      ]
+    },
+    {
+      number: "54",
+      title: "Home Command Center Wallpaper Dashboard",
+      category: "Software",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "SW-054",
+      description:
+        "A LAN-hosted live wallpaper dashboard built as a small monorepo, combining a Fastify and SQLite backend with a React and Vite ambient command surface.",
+      editorial:
+        "Documented as an operational screen system rather than a generic dashboard: the whole repo is tuned around always-on spatial use inside a room, not a browser tab workflow.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/54-home-command-center-wallpaper-dashboard.html" },
+        { label: "Read notes", url: "./dossiers/54-home-command-center-wallpaper-dashboard.html#notes" }
+      ]
+    },
+    {
+      number: "55",
+      title: "Atrahasis",
+      category: "Editorial",
+      status: "Archived",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-055",
+      description:
+        "A cinematic single-page essay about Atrahasis, flood mythology, and Mesopotamian memory, built as a highly styled long-form static reading experience.",
+      editorial:
+        "Documented as rhetorical staging through web form: a simple technical base used to carry a much more ambitious narrative and visual cadence.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/55-atrahasis.html" },
+        { label: "Read notes", url: "./dossiers/55-atrahasis.html#notes" }
+      ]
+    },
+    {
+      number: "56",
+      title: "NBA Edge Finder",
+      category: "Software",
+      status: "In Development",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "SW-056",
+      description:
+        "A Next.js NBA analysis site with multiple routed views, file-backed API handlers, standings pages, game breakdowns, and a dark Bootstrap interface.",
+      editorial:
+        "Documented as a sports-analysis software surface rather than a prediction myth: the repo’s real strength is in how it organizes basketball data into usable routes and views.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/56-nba-edge-finder.html" },
+        { label: "Read notes", url: "./dossiers/56-nba-edge-finder.html#notes" },
+        { label: "Live build", url: "https://nba-edge-finder.vercel.app" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/NBA-EdgeFinder" }
+      ]
+    },
+    {
+      number: "57",
+      title: "FX Diário",
+      category: "Trading Systems",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "TS-057",
+      description:
+        "A single-file forex publication surface that packages tickers, setups, market commentary, and branded UI into one static HTML issue.",
+      editorial:
+        "Documented as a trading-media front end more than a platform: the code is light, but the visual packaging and market voice are already sharply defined.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/57-fx-diario.html" },
+        { label: "Read notes", url: "./dossiers/57-fx-diario.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/FXdiario" }
+      ]
+    },
+    {
+      number: "58",
+      title: "Poster Maker",
+      category: "Creative Tools",
+      status: "In Development",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "CT-058",
+      description:
+        "A Next.js poster-generation product with creative controls, auth, credits, Stripe billing, Prisma data models, OpenAI generation, and Vercel-oriented storage.",
+      editorial:
+        "Documented as a real product skeleton, not just an AI landing page: what matters here is the combination of creative interface and operational backbone.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/58-poster-maker.html" },
+        { label: "Read notes", url: "./dossiers/58-poster-maker.html#notes" },
+        { label: "Live build", url: "https://poster-maker-kohl.vercel.app" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/posterMaker" }
+      ]
+    },
+    {
+      number: "59",
+      title: "Poker Ratinho",
+      category: "Experiments",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "EX-059",
+      description:
+        "An early poker-room platform concept split into a Vite and React frontend and a still-empty backend placeholder.",
+      editorial:
+        "Documented as a recorded direction rather than a finished system: most of the value here is in the intent the repo announces, not in the implementation volume yet.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/59-poker-ratinho.html" },
+        { label: "Read notes", url: "./dossiers/59-poker-ratinho.html#notes" },
+        { label: "Source / Repo", url: "https://github.com/sergioB79/poker-ratinho" }
+      ]
     }
   ]
 };
