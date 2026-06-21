@@ -397,6 +397,91 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/22-ai-chathub.html" },
         { label: "Read notes", url: "./dossiers/22-ai-chathub.html#notes" }
       ]
+    },
+    {
+      number: "23",
+      title: "Homepage Graph",
+      category: "Software",
+      status: "In Development",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "SW-023",
+      description:
+        "A static personal homepage rendered as an interactive 3D knowledge graph, linking categories, documents, and tags through a generated graph data model.",
+      editorial:
+        "Documented as a navigable archive system rather than a conventional homepage: the interface exists to map and traverse a document universe, not simply present it linearly.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/23-homepage-graph.html" },
+        { label: "Read notes", url: "./dossiers/23-homepage-graph.html#notes" }
+      ]
+    },
+    {
+      number: "24",
+      title: "FaceFusion.AI",
+      category: "Creative Tools",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "CT-024",
+      description:
+        "A split-mask AI image editing prototype where users cut part of a portrait away, then use OpenAI image editing to fuse the missing region into a stylized recomposition.",
+      editorial:
+        "Documented as a conceptually strong but still local-first prototype: the interaction idea is clear, yet the runtime remains split between a Next frontend and a hand-rolled Express backend.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/24-facefusion-ai.html" },
+        { label: "Read notes", url: "./dossiers/24-facefusion-ai.html#notes" }
+      ]
+    },
+    {
+      number: "25",
+      title: "Camera Detection",
+      category: "Experiments",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2025",
+      fileCode: "EX-025",
+      description:
+        "A webcam-based computer vision experiment that detects people locally, tracks them across frames, speaks greetings aloud, and asks OpenAI vision for a short descriptive commentary.",
+      editorial:
+        "Documented as an interactive CV prototype with theatrical intent: one machine watches, greets, comments, and logs, without any attempt yet to formalize the system into a product.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/25-camera-detection.html" },
+        { label: "Read notes", url: "./dossiers/25-camera-detection.html#notes" }
+      ]
+    },
+    {
+      number: "26",
+      title: "GER40 Data Pipeline",
+      category: "Trading Systems",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2025",
+      fileCode: "TS-026",
+      description:
+        "A single-instrument GER40 research pipeline that fetches MT5 data, computes range-break and Poisson-style statistics, writes CSV outputs, and prepares operational summaries.",
+      editorial:
+        "Documented as the narrower precursor to a larger trading stack: one market, one pipeline, one operator script, and a visible path toward the later multi-asset system.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/26-ger40-data-pipeline.html" },
+        { label: "Read notes", url: "./dossiers/26-ger40-data-pipeline.html#notes" }
+      ]
+    },
+    {
+      number: "27",
+      title: "Idea Debugger",
+      category: "Software",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "SW-027",
+      description:
+        "A small Python concept-analysis utility that reads an idea from file and runs it through an OpenAI-powered critique prompt to surface assumptions, contradictions, and feasibility issues.",
+      editorial:
+        "Documented as an unfinished but coherent seed tool: the ambition points toward a richer app, but the current implementation remains a minimal private debugger for ideas in text form.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/27-idea-debugger.html" },
+        { label: "Read notes", url: "./dossiers/27-idea-debugger.html#notes" }
+      ]
     }
   ]
 };
