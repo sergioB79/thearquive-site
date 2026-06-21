@@ -635,6 +635,125 @@ window.archiveData = {
         { label: "Open dossier", url: "./dossiers/36-the-mirror-test.html" },
         { label: "Read notes", url: "./dossiers/36-the-mirror-test.html#notes" }
       ]
+    },
+    {
+      number: "37",
+      title: "Consciências",
+      category: "Editorial",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "ED-037",
+      description:
+        "An Astro editorial archive paired with a Modal Python backend that stages AI debates between curated personas and publishes them as artist-linked posts.",
+      editorial:
+        "Documented as a split-surface project: one half is a dark literary publishing shell, the other half is a cloud debate engine that manufactures the voices feeding that shell.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/37-consciencias.html" },
+        { label: "Read notes", url: "./dossiers/37-consciencias.html#notes" }
+      ]
+    },
+    {
+      number: "38",
+      title: "WhispererAI",
+      category: "Software",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2026",
+      fileCode: "SW-038",
+      description:
+        "A local audio-note automation pipeline that sends files to a Modal-hosted Whisper worker, writes transcripts into Logseq, and archives the processed recordings.",
+      editorial:
+        "Documented as private operational glue rather than an app: the authored value sits in the workflow choreography between folders, remote GPU transcription, and structured note storage.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/38-whispererai.html" },
+        { label: "Read notes", url: "./dossiers/38-whispererai.html#notes" }
+      ]
+    },
+    {
+      number: "39",
+      title: "Trade Caption Lab",
+      category: "Trading Systems",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2025",
+      fileCode: "TS-039",
+      description:
+        "A Python caption-generation lab that turns trade metadata and TradingView screenshots into PT-PT post copy through OpenAI and LangChain-assisted workflows.",
+      editorial:
+        "Documented as language tooling around trading rather than trading itself: the point is not execution, but packaging market action into a publishable voice.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/39-trade-caption-lab.html" },
+        { label: "Read notes", url: "./dossiers/39-trade-caption-lab.html#notes" }
+      ]
+    },
+    {
+      number: "40",
+      title: "Trade Analyser Py",
+      category: "Trading Systems",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2025",
+      fileCode: "TS-040",
+      description:
+        "A Python report pipeline that batch-reads chart images, asks OpenAI vision for technical context, synthesizes setups, and delivers the result through Drive and email.",
+      editorial:
+        "Documented as an operator script with real workflow ambition: visual inputs come in, a dated report is produced, and the system pushes its output outward without needing a UI.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/40-trade-analyser-py.html" },
+        { label: "Read notes", url: "./dossiers/40-trade-analyser-py.html#notes" }
+      ]
+    },
+    {
+      number: "41",
+      title: "GALL",
+      category: "Editorial",
+      status: "Prototype",
+      visibility: "Public",
+      year: "2026",
+      fileCode: "ED-041",
+      description:
+        "A multi-page static site for Guerra de Atrito Legal Leve, organized as an operational archive of civic-pressure methods, templates, references, and reusable actions.",
+      editorial:
+        "Documented as a serious information surface, not a brochure: the authored object is a method archive whose static architecture stays simple while the rhetoric stays sharp.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/41-gall.html" },
+        { label: "Read notes", url: "./dossiers/41-gall.html#notes" }
+      ]
+    },
+    {
+      number: "42",
+      title: "Visual Game Test Cam",
+      category: "Experiments",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2025",
+      fileCode: "EX-042",
+      description:
+        "A webcam reaction game in Python and OpenCV that captures a clean background, detects player motion, and measures timed hits across repeated rounds.",
+      editorial:
+        "Documented as a compact but complete interaction prototype: one script, one camera, one mechanic, and enough structure to count as more than a throwaway test.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/42-visual-game-test-cam.html" },
+        { label: "Read notes", url: "./dossiers/42-visual-game-test-cam.html#notes" }
+      ]
+    },
+    {
+      number: "43",
+      title: "Webhook Demo",
+      category: "Software",
+      status: "Prototype",
+      visibility: "Private",
+      year: "2025",
+      fileCode: "SW-043",
+      description:
+        "A bare Flask webhook receiver for local TradingView-style payload testing, paired with ngrok and a bundled virtual environment.",
+      editorial:
+        "Documented as ingress plumbing in isolation: the point here is proving that external signals arrive, not yet deciding what a full downstream system should do with them.",
+      links: [
+        { label: "Open dossier", url: "./dossiers/43-webhook-demo.html" },
+        { label: "Read notes", url: "./dossiers/43-webhook-demo.html#notes" }
+      ]
     }
   ]
 };
